@@ -1,0 +1,6 @@
+changeSets:
+  - id: "1"
+    steps:
+      - type: "renameProperty"
+        oldName: "http://example.org/oldProperty"
+        newName: "http://example.org/newProperty"
