@@ -3,7 +3,9 @@ package cz.cvut.fel.executor;
 import cz.cvut.fel.model.ChangeLog;
 import cz.cvut.fel.model.ChangeSet;
 import cz.cvut.fel.model.changes.Change;
+import cz.cvut.fel.model.changes.RenameClassChange;
 import cz.cvut.fel.model.changes.RenamePropertyChange;
+import cz.cvut.fel.model.changes.RenameResourceChange;
 import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.StmtIterator;
 import org.apache.jena.rdf.model.*;
@@ -33,7 +35,12 @@ public class Executor {
                 if (change instanceof RenamePropertyChange renamePropertyChange) {
                     renamePropertyChange.apply(model);
                 }
-
+                if (change instanceof RenameResourceChange renameResourceChange) {
+                    renameResourceChange.apply(model);
+                }
+                if (change instanceof RenameClassChange renameClassChange) {
+                    renameClassChange.apply(model);
+                }
             }
         }
         System.out.println("Migration finished.");
