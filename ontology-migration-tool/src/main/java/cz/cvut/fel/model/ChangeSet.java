@@ -1,24 +1,19 @@
 package cz.cvut.fel.model;
 
+import cz.cvut.fel.model.changes.Change;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class ChangeSet {
     private String id;
-    private List<Step> steps;
+    private List<Change> changes = new ArrayList<>();
+    public ChangeSet(String id) { this.id = id; }
+    public ChangeSet(){}
+    public String getId() { return id; }
+    public List<Change> getChanges() { return changes; }
+    public void addChange(Change change) { changes.add(change); }
+    public void setId(String id) { this.id = id; }
+    public void setChanges(List<Change> changes) { this.changes = changes; }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public List<Step> getSteps() {
-        return steps;
-    }
-
-    public void setSteps(List<Step> steps) {
-        this.steps = steps;
-    }
 }

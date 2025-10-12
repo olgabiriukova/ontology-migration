@@ -1,9 +1,9 @@
-package cz.cvut.fel.model;
+package cz.cvut.fel.model.changes;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import org.apache.jena.rdf.model.Model;
 
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
@@ -11,9 +11,9 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
         property = "type"
 )
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = RenamePropertyStep.class, name = "renameProperty"),
+        @JsonSubTypes.Type(value = RenamePropertyChange.class, name = "renameProperty"),
 })
-public abstract class Step {
+public abstract class Change {
     public String getType() {
         JsonTypeName annotation = this.getClass().getAnnotation(JsonTypeName.class);
         if (annotation != null) {
@@ -21,4 +21,6 @@ public abstract class Step {
         }
         return this.getClass().getSimpleName();
     }
+
+    public abstract void apply(Model model);
 }
