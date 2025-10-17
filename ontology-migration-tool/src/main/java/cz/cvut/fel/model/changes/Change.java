@@ -12,6 +12,9 @@ import org.apache.jena.rdf.model.Model;
 )
 @JsonSubTypes({
         @JsonSubTypes.Type(value = RenamePropertyChange.class, name = "renameProperty"),
+        @JsonSubTypes.Type(value = RenameResourceChange.class, name = "renameResource"),
+        @JsonSubTypes.Type(value = RenameClassChange.class, name = "renameClass"),
+
 })
 public abstract class Change {
     public String getType() {
