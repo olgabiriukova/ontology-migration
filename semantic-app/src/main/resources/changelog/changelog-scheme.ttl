@@ -1,0 +1,68 @@
+@prefix cl: <http://example.org/changelog-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+cl:ChangeLog a rdfs:Class ;
+    rdfs:label "ChangeLog" ;
+    rdfs:comment "Содержит список ChangeSet" .
+
+cl:ChangeSet a rdfs:Class ;
+    rdfs:label "ChangeSet" ;
+    rdfs:comment "Набор шагов миграции" .
+
+cl:id a rdf:Property ;
+    rdfs:domain cl:ChangeSet ;
+    rdfs:range rdf:Literal ;
+    rdfs:label "ChangeSet ID" .
+
+cl:changes a rdf:Property ;
+    rdfs:domain cl:ChangeSet ;
+    rdfs:range cl:Change ;
+    rdfs:label "Changes" .
+
+cl:Change a rdfs:Class ;
+    rdfs:label "Change" ;
+    rdfs:comment "Абстрактный шаг миграции" .
+
+cl:RenamePropertyChange a rdfs:Class ;
+    rdfs:subClassOf cl:Change ;
+    rdfs:label "RenamePropertyChange" .
+
+cl:RenameClassChange a rdfs:Class ;
+    rdfs:subClassOf cl:Change ;
+    rdfs:label "RenameClassChange" .
+
+cl:RenameResourceChange a rdfs:Class ;
+    rdfs:subClassOf cl:Change ;
+    rdfs:label "RenameResourceChange" .
+
+# Свойства для RenamePropertyChange
+cl:oldName a rdf:Property ;
+    rdfs:domain cl:RenamePropertyChange ;
+    rdfs:range rdf:Literal ;
+    rdfs:label "Old property IRI" .
+
+cl:newName a rdf:Property ;
+    rdfs:domain cl:RenamePropertyChange ;
+    rdfs:range rdf:Literal ;
+    rdfs:label "New property IRI" .
+
+cl:oldClassName a rdf:Property ;
+    rdfs:domain cl:RenameClassChange ;
+    rdfs:range rdf:Literal ;
+    rdfs:label "Old class IRI" .
+
+cl:newClassName a rdf:Property ;
+    rdfs:domain cl:RenameClassChange ;
+    rdfs:range rdf:Literal ;
+    rdfs:label "New class IRI" .
+
+cl:oldResourceName a rdf:Property ;
+    rdfs:domain cl:RenameResourceChange ;
+    rdfs:range rdf:Literal ;
+    rdfs:label "Old resource IRI" .
+
+cl:newResourceName a rdf:Property ;
+    rdfs:domain cl:RenameResourceChange ;
+    rdfs:range rdf:Literal ;
+    rdfs:label "New resource IRI" .
