@@ -41,9 +41,19 @@ public class Executor {
                 if (change instanceof AddClassChange addClassChange) {
                     addClassChange.apply(model);
                 }
-                if (change instanceof AddClassChange addClassChange) {
-                    addClassChange.apply(model);
+                if (change instanceof AddResourceChange addResourceChange) {
+                    addResourceChange.apply(model);
                 }
+                if (change instanceof DeleteClassChange deleteClassChange) {
+                    deleteClassChange.apply(model);
+                }
+                if (change instanceof DeleteResourceChange deleteResourceChange) {
+                    deleteResourceChange.apply(model);
+                }
+                if (change instanceof DeletePropertyChange deletePropertyChange) {
+                    deletePropertyChange.apply(model);
+                }
+
             }
         }
         System.out.println("Migration finished.");
