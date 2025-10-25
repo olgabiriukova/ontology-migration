@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Changelog Schema",
+  "type": "object",
+  "required": ["changeSets"],
+  "properties": {
+    "changeSets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "changes"],
+        "properties": {
+          "id": { "type": "string" },
+          "changes": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": ["type", "oldName", "newName"],
+                  "properties": {
+                    "type": { "const": "renameProperty" },
+                    "oldName": { "type": "string" },
+                    "newName": { "type": "string" }
+                  },
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "required": ["type", "oldName", "newName"],
+                  "properties": {
+                    "type": { "const": "renameClass" },
+                    "oldName": { "type": "string" },
+                    "newName": { "type": "string" }
+                  },
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "required": ["type", "oldName", "newName"],
+                  "properties": {
+                    "type": { "const": "renameResource" },
+                    "oldName": { "type": "string" },
+                    "newName": { "type": "string" }
+                  },
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "required": ["type", "className"],
+                  "properties": {
+                    "type": { "const": "addClass" },
+                    "className": { "type": "string" }
+                  },
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "required": ["type", "resourceName"],
+                  "properties": {
+                    "type": { "const": "addResource" },
+                    "resourceName": { "type": "string" }
+                  },
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "required": ["type", "propertyName"],
+                  "properties": {
+                    "type": { "const": "addProperty" },
+                    "propertyName": { "type": "string" }
+                  },
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "required": ["type", "propertyName"],
+                  "properties": {
+                    "type": { "const": "deleteProperty" },
+                    "propertyName": { "type": "string" }
+                  },
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "required": ["type", "className"],
+                  "properties": {
+                    "type": { "const": "deleteClass" },
+                    "className": { "type": "string" }
+                  },
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "required": ["type", "resourceName"],
+                  "properties": {
+                    "type": { "const": "deleteResource" },
+                    "resourceName": { "type": "string" }
+                  },
+                  "additionalProperties": false
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
