@@ -20,7 +20,7 @@ public class ChangeLogValidator {
     private final JsonSchema jsonSchema;
 
     public ChangeLogValidator() throws IOException {
-        InputStream schema = ChangeLogValidator.class.getResourceAsStream("changelog-schema.json");
+        InputStream schema = ChangeLogValidator.class.getResourceAsStream("changelog-scheme.json");
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode node = objectMapper.readTree(schema);
         JsonSchemaFactory factory = JsonSchemaFactory.getInstance(SpecVersion.VersionFlag.V202012);
