@@ -53,6 +53,12 @@ public class Executor {
                 if (change instanceof DeletePropertyChange deletePropertyChange) {
                     deletePropertyChange.apply(model);
                 }
+                if(change instanceof AddPropertyChange addPropertyChange) {
+                    addPropertyChange.apply(model);
+                }
+                if(change instanceof SparqlUpdateChange sparqlUpdateChange) {
+                    sparqlUpdateChange.apply(model);
+                }
 
             }
         }

@@ -18,7 +18,9 @@ import org.apache.jena.rdf.model.Model;
         @JsonSubTypes.Type(value = AddResourceChange.class, name = "addResource"),
         @JsonSubTypes.Type(value = DeleteResourceChange.class, name = "deleteResource"),
         @JsonSubTypes.Type(value = DeleteClassChange.class, name = "deleteClass"),
-        @JsonSubTypes.Type(value = DeletePropertyChange.class, name = "deleteProperty")
+        @JsonSubTypes.Type(value = DeletePropertyChange.class, name = "deleteProperty"),
+        @JsonSubTypes.Type(value = AddPropertyChange.class, name = "addProperty"),
+        @JsonSubTypes.Type(value = SparqlUpdateChange.class, name = "sparqlUpdate")
 })
 public abstract class Change {
     public String getType() {
