@@ -10,6 +10,7 @@ import org.yaml.snakeyaml.LoaderOptions;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -21,8 +22,9 @@ public class ChangeLogLoader {
         this.validator = new ChangeLogValidator();
     }
     public ChangeLog load(InputStream input) throws IOException, ChangeLogValidationException {
-        validator.validate(input);
+        byte[] data = input.readAllBytes();
+        validator.validate(new ByteArrayInputStream(data));
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-        return mapper.readValue(input, ChangeLog.class);
+        return mapper.readValue(new ByteArrayInputStream(data), ChangeLog.class);
     }
 }
