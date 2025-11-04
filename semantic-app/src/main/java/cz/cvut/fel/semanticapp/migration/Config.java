@@ -1,5 +1,6 @@
 package cz.cvut.fel.semanticapp.migration;
 
+import cz.cvut.fel.exceptions.ChangeLogValidationException;
 import cz.cvut.fel.executor.Executor;
 import cz.cvut.fel.loader.ChangeLogLoader;
 import cz.cvut.fel.model.ChangeLog;
@@ -19,7 +20,7 @@ import java.io.InputStream;
 public class Config {
 
     @Bean
-    public ChangeLogLoader changeLogLoader() {
+    public ChangeLogLoader changeLogLoader() throws IOException {
         return new ChangeLogLoader();
     }
 
@@ -42,6 +43,10 @@ public class Config {
     public ChangeLog changeLog(ChangeLogLoader loader) {
         try (InputStream input = new ClassPathResource("/changelog/changelog.yaml").getInputStream()) {
             return loader.load(input);
+        }catch(ChangeLogValidationException ex){
+            System.out.println("Changelog validation error");
+            System.exit(1);
+            return null;
         } catch (Exception e) {
             throw new RuntimeException("Failed to load changelog.yaml", e);
         }

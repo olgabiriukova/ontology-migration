@@ -2,10 +2,7 @@ package cz.cvut.fel.executor;
 
 import cz.cvut.fel.model.ChangeLog;
 import cz.cvut.fel.model.ChangeSet;
-import cz.cvut.fel.model.changes.Change;
-import cz.cvut.fel.model.changes.RenameClassChange;
-import cz.cvut.fel.model.changes.RenamePropertyChange;
-import cz.cvut.fel.model.changes.RenameResourceChange;
+import cz.cvut.fel.model.changes.*;
 import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.StmtIterator;
 import org.apache.jena.rdf.model.*;
@@ -41,6 +38,28 @@ public class Executor {
                 if (change instanceof RenameClassChange renameClassChange) {
                     renameClassChange.apply(model);
                 }
+                if (change instanceof AddClassChange addClassChange) {
+                    addClassChange.apply(model);
+                }
+                if (change instanceof AddResourceChange addResourceChange) {
+                    addResourceChange.apply(model);
+                }
+                if (change instanceof DeleteClassChange deleteClassChange) {
+                    deleteClassChange.apply(model);
+                }
+                if (change instanceof DeleteResourceChange deleteResourceChange) {
+                    deleteResourceChange.apply(model);
+                }
+                if (change instanceof DeletePropertyChange deletePropertyChange) {
+                    deletePropertyChange.apply(model);
+                }
+                if(change instanceof AddPropertyChange addPropertyChange) {
+                    addPropertyChange.apply(model);
+                }
+                if(change instanceof SparqlUpdateChange sparqlUpdateChange) {
+                    sparqlUpdateChange.apply(model);
+                }
+
             }
         }
         System.out.println("Migration finished.");

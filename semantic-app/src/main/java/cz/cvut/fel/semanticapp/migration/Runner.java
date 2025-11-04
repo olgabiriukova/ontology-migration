@@ -4,6 +4,7 @@ import cz.cvut.fel.executor.Executor;
 import cz.cvut.fel.model.ChangeLog;
 import jakarta.annotation.PostConstruct;
 import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdfconnection.RDFConnection;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
@@ -29,6 +30,11 @@ public class Runner {
 
         try (FileOutputStream out = new FileOutputStream("ontology_migrated.ttl")) {
             executor.getModel().write(out, "TTL");
+        }
+
+        String fusekiEndpoint = "http://localhost:3030/ontology";
+        try(RDFConnection conn = RDFConnection.connect(fusekiEndpoint)) {
+            conn.load(executor.getModel());
         }
     }
 }
