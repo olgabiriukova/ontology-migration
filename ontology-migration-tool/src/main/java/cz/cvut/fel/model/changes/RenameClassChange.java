@@ -1,11 +1,6 @@
 package cz.cvut.fel.model.changes;
 
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.Resource;
-import org.apache.jena.rdf.model.Statement;
-
-import java.util.List;
+import cz.cvut.fel.fuseki.FusekiRepository;
 
 
 public class RenameClassChange extends Change{
@@ -25,6 +20,7 @@ public class RenameClassChange extends Change{
         this.newName = newName;
     }
 
+    /*
     @Override
     public void apply(Model model) {
         Resource oldClass = model.getResource(oldName);
@@ -48,5 +44,10 @@ public class RenameClassChange extends Change{
         model.removeAll(oldClass, null, null);
         model.removeAll(null, null, oldClass);
         System.out.println("Class changed to " + newName);
+    }*/
+
+    @Override
+    public void apply(FusekiRepository repository) {
+
     }
 }

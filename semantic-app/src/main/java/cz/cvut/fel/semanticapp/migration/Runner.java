@@ -2,39 +2,31 @@ package cz.cvut.fel.semanticapp.migration;
 
 import cz.cvut.fel.executor.Executor;
 import cz.cvut.fel.model.ChangeLog;
+import cz.cvut.fel.runner.MigrationRunner;
 import jakarta.annotation.PostConstruct;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdfconnection.RDFConnection;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
+import java.io.*;
 
 @Component
 public class Runner {
-    private final Executor executor;
-    private final ChangeLog changeLog;
-    private final Model model;
+    private final MigrationRunner migrationRunner;
 
-    public Runner(Executor executor, ChangeLog changeLog, Model model) {
-        this.executor = executor;
-        this.changeLog = changeLog;
-        this.model = model;
+    public Runner(@Value("${fuseki.endpoint}") String endpoint,
+                  @Value("${fuseki.user}") String user,
+                  @Value("${fuseki.password}") String password) throws IOException {
+        this.migrationRunner = new MigrationRunner(endpoint, user, password);
     }
 
     @PostConstruct
     public void runMigration() throws Exception{
-        executor.execute(changeLog);
-        System.out.println("Saving migrated ontology to: " + new File("ontology_migrated.ttl").getAbsolutePath());
-
-        try (FileOutputStream out = new FileOutputStream("ontology_migrated.ttl")) {
-            executor.getModel().write(out, "TTL");
+        try(InputStream in = new ClassPathResource("/changelog/changelog.yaml").getInputStream()) {
+            migrationRunner.run(in);
         }
-
-        String fusekiEndpoint = "http://localhost:3030/ontology";
-        try(RDFConnection conn = RDFConnection.connect(fusekiEndpoint)) {
-            conn.load(executor.getModel());
-        }
+        System.out.println("Migration completed.");
     }
 }

@@ -1,9 +1,6 @@
 package cz.cvut.fel.model.changes;
 
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.Property;
-import org.apache.jena.rdf.model.RDFNode;
-import org.apache.jena.rdf.model.Resource;
+import cz.cvut.fel.fuseki.FusekiRepository;
 
 public class DeletePropertyChange extends Change{
     private String uri;
@@ -13,6 +10,7 @@ public class DeletePropertyChange extends Change{
 
     public DeletePropertyChange(){}
 
+    /*
     @Override
     public void apply(Model model) {
         Property property = model.getProperty(uri);
@@ -27,9 +25,14 @@ public class DeletePropertyChange extends Change{
         /*
         model.listStatements(property, null, (RDFNode) null)
                 .forEachRemaining(model::remove);
-         */
+
 
         System.out.println("Property "+uri+" removed!");
+
+    }*/
+
+    @Override
+    public void apply(FusekiRepository repository) {
 
     }
 }

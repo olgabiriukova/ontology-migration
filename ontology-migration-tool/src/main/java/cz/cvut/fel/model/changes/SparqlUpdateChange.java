@@ -1,10 +1,6 @@
 package cz.cvut.fel.model.changes;
 
-import org.apache.jena.query.Dataset;
-import org.apache.jena.query.DatasetFactory;
-import org.apache.jena.query.ReadWrite;
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.update.*;
+import cz.cvut.fel.fuseki.FusekiRepository;
 
 public class SparqlUpdateChange extends Change{
     private final String query;
@@ -12,6 +8,7 @@ public class SparqlUpdateChange extends Change{
         this.query = query;
     }
 
+    /*
     @Override
     public void apply(Model model) {
         Dataset dataset = DatasetFactory.create(model);
@@ -28,5 +25,10 @@ public class SparqlUpdateChange extends Change{
         }finally{
             dataset.end();
         }
+    }*/
+
+    @Override
+    public void apply(FusekiRepository repository) {
+
     }
 }

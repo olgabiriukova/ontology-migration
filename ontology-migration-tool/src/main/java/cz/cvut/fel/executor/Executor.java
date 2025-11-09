@@ -3,14 +3,30 @@ package cz.cvut.fel.executor;
 import cz.cvut.fel.model.ChangeLog;
 import cz.cvut.fel.model.ChangeSet;
 import cz.cvut.fel.model.changes.*;
-import org.apache.jena.rdf.model.Property;
-import org.apache.jena.rdf.model.StmtIterator;
-import org.apache.jena.rdf.model.*;
-
-import java.util.List;
+import cz.cvut.fel.fuseki.FusekiRepository;
 
 
 public class Executor {
+    private final FusekiRepository repository;
+
+    public Executor(FusekiRepository repository) {
+        this.repository = repository;
+    }
+
+    public void execute(ChangeLog changeLog) {
+        System.out.println("Start migration");
+        for (ChangeSet changeSet : changeLog.getChangeSets()) {
+            System.out.println("ChangeSet: " + changeSet.getId());
+            for (Change change : changeSet.getChanges()) {
+                System.out.println("Step type: " + change.getType());
+                System.out.println("Apply step logic");
+                change.apply(repository);
+            }
+        }
+        System.out.println("Migration finished.");
+
+    }
+    /*
     private final Model model;
 
     public Executor(Model model) {
@@ -63,6 +79,6 @@ public class Executor {
             }
         }
         System.out.println("Migration finished.");
-    }
+    }*/
 
 }

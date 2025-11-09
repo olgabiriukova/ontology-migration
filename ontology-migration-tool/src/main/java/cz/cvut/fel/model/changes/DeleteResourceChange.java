@@ -1,7 +1,6 @@
 package cz.cvut.fel.model.changes;
 
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.Resource;
+import cz.cvut.fel.fuseki.FusekiRepository;
 
 public class DeleteResourceChange extends Change{
     private String uri;
@@ -10,6 +9,7 @@ public class DeleteResourceChange extends Change{
     }
     public DeleteResourceChange(){}
 
+    /*
     @Override
     public void apply(Model model) {
         Resource resource = model.getResource(uri);
@@ -20,6 +20,11 @@ public class DeleteResourceChange extends Change{
         model.listStatements(null,null,resource).forEachRemaining(stmt->model.remove(stmt));
 
         System.out.println("Resource "+uri+" removed!");
+
+    }*/
+
+    @Override
+    public void apply(FusekiRepository repository) {
 
     }
 }

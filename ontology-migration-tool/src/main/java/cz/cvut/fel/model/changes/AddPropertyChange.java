@@ -1,13 +1,8 @@
 package cz.cvut.fel.model.changes;
 
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.Property;
-import org.apache.jena.rdf.model.Resource;
-
-import java.awt.geom.RectangularShape;
+import cz.cvut.fel.fuseki.FusekiRepository;
 
 public class AddPropertyChange extends Change {
-    //TODO
     private final String propertyURI;
     private final String objectURI;
     private final String subjectURI;
@@ -17,6 +12,7 @@ public class AddPropertyChange extends Change {
         this.objectURI = objectURI;
         this.subjectURI = subjectURI;
     }
+    /*
     @Override
     public void apply(Model model) {
         Resource subject = model.getResource(subjectURI);
@@ -38,6 +34,11 @@ public class AddPropertyChange extends Change {
         property = model.createProperty(propertyURI);
         subject.addProperty(property, object);
         System.out.println("Added property: " + propertyURI);
+
+    }*/
+
+    @Override
+    public void apply(FusekiRepository repository) {
 
     }
 }

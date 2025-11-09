@@ -1,9 +1,6 @@
 package cz.cvut.fel.model.changes;
 
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.Resource;
-import org.apache.jena.vocabulary.RDF;
-import org.apache.jena.vocabulary.RDFS;
+import cz.cvut.fel.fuseki.FusekiRepository;
 
 public class AddClassChange extends Change{
     private String uri;
@@ -15,6 +12,7 @@ public class AddClassChange extends Change{
     }
     public AddClassChange(){}
 
+    /*
     @Override
     public void apply(Model model) {
         Resource newClass = model.createResource(uri);
@@ -22,5 +20,10 @@ public class AddClassChange extends Change{
         newClass.addProperty(RDF.type, RDFS.Class);
 
         System.out.println("Added new class: " + uri);
+    }*/
+
+    @Override
+    public void apply(FusekiRepository repository) {
+
     }
 }

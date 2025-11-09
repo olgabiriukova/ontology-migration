@@ -1,9 +1,6 @@
 package cz.cvut.fel.model.changes;
 
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.RDFNode;
-import org.apache.jena.rdf.model.Resource;
-import org.apache.jena.vocabulary.RDF;
+import cz.cvut.fel.fuseki.FusekiRepository;
 
 public class DeleteClassChange extends Change{
     private String uri;
@@ -12,6 +9,7 @@ public class DeleteClassChange extends Change{
     }
     public DeleteClassChange(){}
 
+    /*
     @Override
     public void apply(Model model) {
         Resource cls = model.getResource(uri);
@@ -25,6 +23,11 @@ public class DeleteClassChange extends Change{
         model.listStatements(cls, null, (RDFNode) null)
                 .forEachRemaining(model::remove);
         System.out.println(uri + "removed!");
+
+    }*/
+
+    @Override
+    public void apply(FusekiRepository repository) {
 
     }
 }

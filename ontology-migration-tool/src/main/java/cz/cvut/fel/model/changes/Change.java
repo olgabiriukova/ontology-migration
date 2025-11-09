@@ -3,7 +3,7 @@ package cz.cvut.fel.model.changes;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import org.apache.jena.rdf.model.Model;
+import cz.cvut.fel.fuseki.FusekiRepository;
 
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
@@ -31,5 +31,5 @@ public abstract class Change {
         return this.getClass().getSimpleName();
     }
 
-    public abstract void apply(Model model);
+    public abstract void apply(FusekiRepository repository);
 }

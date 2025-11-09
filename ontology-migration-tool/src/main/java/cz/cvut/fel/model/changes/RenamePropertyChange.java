@@ -1,11 +1,6 @@
 package cz.cvut.fel.model.changes;
 
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.Property;
-import org.apache.jena.rdf.model.RDFNode;
-import org.apache.jena.rdf.model.Statement;
-
-import java.util.List;
+import cz.cvut.fel.fuseki.FusekiRepository;
 
 public class RenamePropertyChange extends Change {
     private String oldName;
@@ -24,9 +19,27 @@ public class RenamePropertyChange extends Change {
         this.newName = newName;
     }
 
+    @Override
+    public void apply(FusekiRepository repo) {
+        String sparql = String.format("""
+                DELETE { ?s <%s> ?o }
+                INSERT { ?s <%s> ?o }
+                WHERE  { ?s <%s> ?o }
+                """, oldName, newName, oldName);
+        repo.update(sparql);
+        String updateMetaSparql = String.format("""
+                DELETE { <%s> ?p ?o}
+                INSERT { <%s> ?p ?o }
+                WHERE { <%s> ?p ?o }
+                """, oldName, newName, oldName);
+        repo.update(updateMetaSparql);
+        System.out.println("Property was changed: " + oldName + " -> " + newName);
+    }
 
 
 
+
+    /*
     @Override
     public void apply(Model model){
         Property oldProperty = model.createProperty(oldName);
@@ -47,7 +60,5 @@ public class RenamePropertyChange extends Change {
             model.remove(s);
         }
         System.out.println("Property was changed: " + oldName + " -> " + newName);
-    }
-
-
+    }*/
 }
