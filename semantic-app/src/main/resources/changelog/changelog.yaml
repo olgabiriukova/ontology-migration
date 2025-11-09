@@ -2,7 +2,7 @@ changeSets:
   - id: "1"
     changes:
       - type: "renameProperty"
-        oldName: "http://example.org/oldProperty"
+        olName: "http://example.org/oldProperty"
         newName: "http://example.org/newProperty"
       - type: "renameClass"
         oldName: "http://example.org/OldClass"

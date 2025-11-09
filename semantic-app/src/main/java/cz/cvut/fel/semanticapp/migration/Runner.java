@@ -1,5 +1,6 @@
 package cz.cvut.fel.semanticapp.migration;
 
+import cz.cvut.fel.exceptions.ChangeLogValidationException;
 import cz.cvut.fel.executor.Executor;
 import cz.cvut.fel.model.ChangeLog;
 import cz.cvut.fel.runner.MigrationRunner;
@@ -26,6 +27,10 @@ public class Runner {
     public void runMigration() throws Exception{
         try(InputStream in = new ClassPathResource("/changelog/changelog.yaml").getInputStream()) {
             migrationRunner.run(in);
+        } catch (ChangeLogValidationException e) {
+            System.err.println("ChangeLog validation error!");
+            System.exit(1);
+
         }
         System.out.println("Migration completed.");
     }
