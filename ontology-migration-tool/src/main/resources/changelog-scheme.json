@@ -19,26 +19,6 @@
                   "type": "object",
                   "required": ["type", "oldName", "newName"],
                   "properties": {
-                    "type": { "const": "renameProperty" },
-                    "oldName": { "type": "string" },
-                    "newName": { "type": "string" }
-                  },
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "required": ["type", "oldName", "newName"],
-                  "properties": {
-                    "type": { "const": "renameClass" },
-                    "oldName": { "type": "string" },
-                    "newName": { "type": "string" }
-                  },
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "required": ["type", "oldName", "newName"],
-                  "properties": {
                     "type": { "const": "renameResource" },
                     "oldName": { "type": "string" },
                     "newName": { "type": "string" }

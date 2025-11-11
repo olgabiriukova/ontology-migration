@@ -1,12 +1,12 @@
 changeSets:
   - id: "1"
     changes:
-      - type: "renameProperty"
-        olName: "http://example.org/oldProperty"
-        newName: "http://example.org/newProperty"
-      - type: "renameClass"
+      - type: "renameResource"
         oldName: "http://example.org/OldClass"
         newName: "http://example.org/NewClass"
       - type: "renameResource"
         oldName: "http://example.org/OldResource"
         newName: "http://example.org/NewResource"
+      - type: "renameResource"
+        oldName: "http://example.org/oldProperty"
+        newName: "http://example.org/NewProperty"

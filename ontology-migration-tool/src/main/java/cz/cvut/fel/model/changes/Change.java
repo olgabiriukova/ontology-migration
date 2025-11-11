@@ -11,9 +11,7 @@ import cz.cvut.fel.fuseki.FusekiRepository;
         property = "type"
 )
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = RenamePropertyChange.class, name = "renameProperty"),
         @JsonSubTypes.Type(value = RenameResourceChange.class, name = "renameResource"),
-        @JsonSubTypes.Type(value = RenameClassChange.class, name = "renameClass"),
         @JsonSubTypes.Type(value = AddClassChange.class, name = "addClass"),
         @JsonSubTypes.Type(value = AddResourceChange.class, name = "addResource"),
         @JsonSubTypes.Type(value = DeleteResourceChange.class, name = "deleteResource"),
