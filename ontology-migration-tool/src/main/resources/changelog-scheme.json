@@ -27,64 +27,51 @@
                 },
                 {
                   "type": "object",
-                  "required": ["type", "className"],
+                  "required": ["type", "uri"],
                   "properties": {
                     "type": { "const": "addClass" },
-                    "className": { "type": "string" }
+                    "uri": { "type": "string" },
+                    "label": { "type": "string" }
                   },
                   "additionalProperties": false
                 },
                 {
                   "type": "object",
-                  "required": ["type", "resourceName"],
+                  "required": ["type", "uri"],
                   "properties": {
                     "type": { "const": "addResource" },
-                    "resourceName": { "type": "string" }
+                    "uri": { "type": "string" },
+                    "classUri": { "type": "string" },
+                    "label": { "type": "string" }
                   },
                   "additionalProperties": false
                 },
                 {
                   "type": "object",
-                  "required": ["type", "propertyName"],
+                  "required": ["type", "propertyURI"],
                   "properties": {
                     "type": { "const": "addProperty" },
-                    "propertyName": { "type": "string" }
+                    "subjectURI": { "type": "string" },
+                    "propertyURI": { "type": "string" },
+                    "objectURI": { "type": "string" }
                   },
                   "additionalProperties": false
                 },
                 {
                   "type": "object",
-                  "required": ["type", "propertyName"],
-                  "properties": {
-                    "type": { "const": "deleteProperty" },
-                    "propertyName": { "type": "string" }
-                  },
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "required": ["type", "className"],
-                  "properties": {
-                    "type": { "const": "deleteClass" },
-                    "className": { "type": "string" }
-                  },
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "required": ["type", "resourceName"],
+                  "required": ["type", "uri"],
                   "properties": {
                     "type": { "const": "deleteResource" },
-                    "resourceName": { "type": "string" }
+                    "uri": { "type": "string" }
                   },
                   "additionalProperties": false
                 },
                 {
                   "type": "object",
-                  "required": ["type", "updateQuery"],
+                  "required": ["type", "query"],
                   "properties": {
                     "type": { "const": "sparqlUpdate" },
-                    "updateQuery": { "type": "string" }
+                    "query": { "type": "string" }
                   },
                   "additionalProperties": false
                 }

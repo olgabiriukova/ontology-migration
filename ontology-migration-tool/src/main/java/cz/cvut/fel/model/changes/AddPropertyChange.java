@@ -1,44 +1,34 @@
 package cz.cvut.fel.model.changes;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import cz.cvut.fel.fuseki.FusekiRepository;
 
 public class AddPropertyChange extends Change {
-    private final String propertyURI;
-    private final String objectURI;
-    private final String subjectURI;
+    @JsonProperty("propertyURI")
+    private String propertyURI;
+    @JsonProperty("objectURI")
+    private String objectURI;
+    @JsonProperty("subjectURI")
+    private String subjectURI;
+
+    public AddPropertyChange(){}
 
     public AddPropertyChange(String propertyURI, String objectURI, String subjectURI) {
         this.propertyURI = propertyURI;
         this.objectURI = objectURI;
         this.subjectURI = subjectURI;
     }
-    /*
-    @Override
-    public void apply(Model model) {
-        Resource subject = model.getResource(subjectURI);
-        Resource object = model.getResource(objectURI);
-        if(subject == null){
-            System.out.println("No such subject: " + subjectURI);
-            return;
-        }
-        if(object == null){
-            System.out.println("No such object: " + objectURI);
-            return;
-        }
-        Property property = model.getProperty(propertyURI);
-        if(property != null){
-            System.out.println("Property already exists: " + propertyURI);
-            return;
-        }
-
-        property = model.createProperty(propertyURI);
-        subject.addProperty(property, object);
-        System.out.println("Added property: " + propertyURI);
-
-    }*/
 
     @Override
-    public void apply(FusekiRepository repository) {
-
+    public void apply(FusekiRepository repository) { //TODO переписать
+        StringBuilder sb = new StringBuilder();
+        sb.append("INSERT DATA { ");
+        if(subjectURI != null && propertyURI != null && objectURI != null){
+            sb.append(String.format("<%s> <%s> <%s> . ", subjectURI, propertyURI, objectURI));
+        }
+        sb.append(" }");
+        repository.update(sb.toString());
+        System.out.println("Property added: " + propertyURI);
     }
 }
