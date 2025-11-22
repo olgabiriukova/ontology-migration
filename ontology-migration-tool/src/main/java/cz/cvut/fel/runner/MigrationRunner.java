@@ -18,8 +18,8 @@ public class MigrationRunner {
         this.loader = new ChangeLogLoader();
     }
 
-    public void run(InputStream input) throws IOException, ChangeLogValidationException {
-        ChangeLog changeLog = loader.load(input);
+    public void run() throws IOException, ChangeLogValidationException {
+        ChangeLog changeLog = loader.loadFromResource();
         Executor executor = new Executor(repo);
         executor.execute(changeLog);
     }

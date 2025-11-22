@@ -25,12 +25,15 @@ public class Runner {
 
     @PostConstruct
     public void runMigration() throws Exception{
-        try(InputStream in = new ClassPathResource("/changelog/changelog.yaml").getInputStream()) {
-            migrationRunner.run(in);
+        try{
+            migrationRunner.run();
         } catch (ChangeLogValidationException e) {
             System.err.println("ChangeLog validation error!");
             System.exit(1);
 
+        } catch (IOException e) {
+            System.err.println("Changelog is not found");
+            System.exit(1);
         }
         System.out.println("Migration completed.");
     }
