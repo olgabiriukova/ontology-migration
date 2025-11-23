@@ -15,13 +15,18 @@ public class DeleteResourceChange extends Change{
 
     @Override
     public String apply(FusekiRepository repository) {
-        String query = String.format(
-                "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
-                        "DELETE WHERE { <%1$s> ?p ?o. ?s ?p2 <%1$s>. ?instance rdf:type <%1$s>. }",
-                uri
-        );
-        //repository.update(query);
-        System.out.println("Resource deleted: " + uri);
-        return query;
+        if (graph != null && !graph.isBlank()) {
+            return String.format(
+                    "DELETE WHERE { GRAPH <%s> { <%s> ?p ?o } }; " +
+                            "DELETE WHERE { GRAPH <%s> { ?s ?p <%s> } }",
+                    graph, uri, graph, uri
+            );
+        } else {
+            return String.format(
+                    "DELETE WHERE { <%s> ?p ?o }; " +
+                            "DELETE WHERE { ?s ?p <%s> }",
+                    uri, uri
+            );
+        }
     }
 }

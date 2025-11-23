@@ -10,21 +10,28 @@ public class  AddClassChange extends Change{
     @JsonProperty("label")
     private String label;
 
-    public AddClassChange(String uri, String label) {
+    public AddClassChange(String uri, String label, String graph) {
         this.uri = uri;
         this.label = label;
+        this.graph = graph;
     }
     public AddClassChange(){}
 
     @Override
     public String apply(FusekiRepository repository) {
         StringBuilder sb = new StringBuilder();
-        sb.append("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> ")
-            .append("PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> ")
-            .append("INSERT DATA { ")
-            .append(String.format("<%s> rdf:type rdfs:Class . ", uri));
+        sb.append("INSERT DATA { ");
+        if(graph != null && !graph.isBlank()){
+            sb.append("GRAPH <").append(graph).append("> { ");
+        }
+        sb.append(String.format("<%s> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> " +
+                "<http://www.w3.org/2000/01/rdf-schema#Class> . ", uri));
         if(label != null){
-            sb.append(String.format("<%s> rdfs:label \"%s\" . ", uri, label));
+            sb.append(String.format("<%s> <http://www.w3.org/2000/01/rdf-schema#label>" +
+                    " \"%s\" . ", uri, label));
+        }
+        if(graph!=null && !graph.isBlank()){
+            sb.append("}");
         }
         sb.append("}");
         //repository.update(sb.toString());

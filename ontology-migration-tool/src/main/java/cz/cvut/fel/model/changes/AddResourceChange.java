@@ -22,11 +22,17 @@ public class AddResourceChange extends Change{
     public String apply(FusekiRepository repository) {
         StringBuilder sb = new StringBuilder();
         sb.append("INSERT DATA { ");
+        if(graph != null && !graph.isBlank()){
+            sb.append("GRAPH <").append(graph).append("> { ");
+        }
         if (classUri != null) {
             sb.append(String.format("<%s> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <%s> . ", uri, classUri));
         }
         if (label != null) {
             sb.append(String.format("<%s> <http://www.w3.org/2000/01/rdf-schema#label> \"%s\" . ", uri, label));
+        }
+        if(graph!=null && !graph.isBlank()){
+            sb.append("}");
         }
         sb.append(" }");
         //repository.update(sb.toString());

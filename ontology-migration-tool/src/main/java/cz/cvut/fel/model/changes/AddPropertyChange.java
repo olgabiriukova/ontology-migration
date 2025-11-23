@@ -17,18 +17,26 @@ public class AddPropertyChange extends Change {
 
     public AddPropertyChange(){}
 
-    public AddPropertyChange(String propertyURI, String objectURI, String subjectURI) {
+    public AddPropertyChange(String propertyURI, String objectURI, String subjectURI,
+                             String graph) {
         this.propertyURI = propertyURI;
         this.objectURI = objectURI;
         this.subjectURI = subjectURI;
+        this.graph = graph;
     }
 
     @Override
     public String apply(FusekiRepository repository) { //TODO переписать
         StringBuilder sb = new StringBuilder();
         sb.append("INSERT DATA { ");
+        if(graph != null && !graph.isBlank()){
+            sb.append("GRAPH <").append(graph).append("> { ");
+        }
         if(subjectURI != null && propertyURI != null && objectURI != null){
             sb.append(String.format("<%s> <%s> <%s> . ", subjectURI, propertyURI, objectURI));
+        }
+        if(graph!=null && !graph.isBlank()){
+            sb.append("}");
         }
         sb.append(" }");
         //repository.update(sb.toString());

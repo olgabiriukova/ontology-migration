@@ -1,5 +1,6 @@
 package cz.cvut.fel.model.changes;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -19,6 +20,13 @@ import cz.cvut.fel.fuseki.FusekiRepository;
         @JsonSubTypes.Type(value = SparqlUpdateChange.class, name = "sparqlUpdate")
 })
 public abstract class Change {
+    @JsonProperty("graph")
+    protected String graph;
+
+    public String getGraph() {
+        return graph;
+    }
+
     public String getType() {
         JsonTypeName annotation = this.getClass().getAnnotation(JsonTypeName.class);
         if (annotation != null) {

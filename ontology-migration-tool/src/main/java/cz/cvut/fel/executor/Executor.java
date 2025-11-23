@@ -15,14 +15,14 @@ public class Executor {
 
     public void execute(ChangeLog changeLog) {
         System.out.println("Start migration");
-        StringBuilder transaction = new StringBuilder();
-
         for (ChangeSet changeSet : changeLog.getChangeSets()) {
             System.out.println("ChangeSet: " + changeSet.getId());
+            StringBuilder transaction = new StringBuilder();
             for (Change change : changeSet.getChanges()) {
                 System.out.println("Step type: " + change.getType());
                 System.out.println("Apply step logic");
                 String sparql = change.apply(repository);
+
                 transaction.append(sparql).append(";\n");
             }
             try{

@@ -14,7 +14,7 @@ public class SparqlUpdateChange extends Change{
     public SparqlUpdateChange() {}
 
     @Override
-    public String apply(FusekiRepository repository) {
+    public String apply(FusekiRepository repository) { //sparql must be without with <graph>
         System.out.println("Updating " + query);
         return query;
     }

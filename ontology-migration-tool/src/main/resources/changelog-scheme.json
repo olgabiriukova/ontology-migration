@@ -21,7 +21,8 @@
                   "properties": {
                     "type": { "const": "renameResource" },
                     "oldName": { "type": "string" },
-                    "newName": { "type": "string" }
+                    "newName": { "type": "string" },
+                    "graph": {"type":  "string"}
                   },
                   "additionalProperties": false
                 },
@@ -31,7 +32,8 @@
                   "properties": {
                     "type": { "const": "addClass" },
                     "uri": { "type": "string" },
-                    "label": { "type": "string" }
+                    "label": { "type": "string" },
+                    "graph": {"type":  "string"}
                   },
                   "additionalProperties": false
                 },
@@ -42,7 +44,8 @@
                     "type": { "const": "addResource" },
                     "uri": { "type": "string" },
                     "classUri": { "type": "string" },
-                    "label": { "type": "string" }
+                    "label": { "type": "string" },
+                    "graph": {"type":  "string"}
                   },
                   "additionalProperties": false
                 },
@@ -53,7 +56,8 @@
                     "type": { "const": "addProperty" },
                     "subjectURI": { "type": "string" },
                     "propertyURI": { "type": "string" },
-                    "objectURI": { "type": "string" }
+                    "objectURI": { "type": "string" },
+                    "graph": {"type":  "string"}
                   },
                   "additionalProperties": false
                 },
@@ -62,7 +66,8 @@
                   "required": ["type", "uri"],
                   "properties": {
                     "type": { "const": "deleteResource" },
-                    "uri": { "type": "string" }
+                    "uri": { "type": "string" },
+                    "graph": {"type":  "string"}
                   },
                   "additionalProperties": false
                 },
