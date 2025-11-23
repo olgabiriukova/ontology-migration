@@ -14,14 +14,8 @@ public class SparqlUpdateChange extends Change{
     public SparqlUpdateChange() {}
 
     @Override
-    public void apply(FusekiRepository repository) {
-        try{
-            repository.update(query);
-            System.out.println("Updated query: " + query);
-        }catch(Exception e){
-            System.err.println("Error updating query: " + query);
-            throw e;
-        }
-
+    public String apply(FusekiRepository repository) {
+        System.out.println("Updating " + query);
+        return query;
     }
 }

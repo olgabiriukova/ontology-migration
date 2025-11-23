@@ -4,41 +4,52 @@ changeSets:
       - type: "renameResource"
         oldName: "http://example.org/OldClass"
         newName: "http://example.org/NewClass"
+
       - type: "renameResource"
         oldName: "http://example.org/OldResource"
         newName: "http://example.org/NewResource"
+
       - type: "renameResource"
         oldName: "http://example.org/oldProperty"
         newName: "http://example.org/NewProperty"
+
       - type: "addClass"
         uri: "http://example.org/Person"
         label: "Person Class"
+
       - type: "addResource"
         uri: "http://example.org/Alice"
         classUri: "http://example.org/Person"
         label: "Alice"
+
       - type: "addResource"
         uri: "http://example.org/Bob"
         classUri: "http://example.org/Person"
         label: "Bob"
+
       - type: "addProperty"
         subjectURI: "http://example.org/Alice"
         propertyURI: "http://example.org/knows"
         objectURI: "http://example.org/Bob"
+
   - id: "2"
     changes:
-        - type: "deleteResource"
-          uri: "http://example.org/knows"
-        - type: "deleteResource"
-          uri: "http://example.org/Alice"
-        - type: "deleteResource"
-          uri: "http://example.org/Bob"
-        - type: "deleteResource"
-          uri: "http://example.org/Person"
-        - type: "sparqlUpdate"
-          query: |
-              PREFIX ex: <http://example.org/>
-              INSERT DATA {
-                ex:resource2 ex:name "SPARQL Test Resource" .
-                ex:resource2 a ex:ExampleClass .
-              }
+      - type: "deleteResource"
+        uri: "http://example.org/knows"
+
+      - type: "deleteResource"
+        uri: "http://example.org/Alice"
+
+      - type: "deleteResource"
+        uri: "http://example.org/Bob"
+
+      - type: "deleteResource"
+        uri: "http://example.org/Person"
+
+      - type: "sparqlUpdate"
+        updateQuery: |
+          PREFIX ex: <http://example.org/>
+          INSERT DATA {
+            ex:resource2 ex:name "SPARQL Test Resource" .
+            ex:resource2 a ex:ExampleClass .
+          }

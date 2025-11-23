@@ -15,70 +15,26 @@ public class Executor {
 
     public void execute(ChangeLog changeLog) {
         System.out.println("Start migration");
+        StringBuilder transaction = new StringBuilder();
+
         for (ChangeSet changeSet : changeLog.getChangeSets()) {
             System.out.println("ChangeSet: " + changeSet.getId());
             for (Change change : changeSet.getChanges()) {
                 System.out.println("Step type: " + change.getType());
                 System.out.println("Apply step logic");
-                change.apply(repository);
+                String sparql = change.apply(repository);
+                transaction.append(sparql).append(";\n");
+            }
+            try{
+                repository.update(transaction.toString());
+                System.out.println("ChangeSet: " + changeSet.getId() + " applied successfully.");
+            }catch(Exception e){
+                System.err.println("ChangeSet "+changeSet.getId()+" FAILED: "+e.getMessage());
+                throw new RuntimeException("Migration failed at ChangeSet: " + changeSet.getId(), e);
             }
         }
         System.out.println("Migration finished.");
 
     }
-    /*
-    private final Model model;
-
-    public Executor(Model model) {
-        this.model = model;
-    }
-
-    public Model getModel(){
-        return model;
-    }
-
-    public void execute(ChangeLog changeLog) {
-        System.out.println("Start migration");
-        for (ChangeSet changeSet : changeLog.getChangeSets()) {
-            System.out.println("ChangeSet: " + changeSet.getId());
-            for (Change change : changeSet.getChanges()) {
-                System.out.println("Step type: " + change.getType());
-                System.out.println("Apply step logic");
-                //ToDo
-                if (change instanceof RenamePropertyChange renamePropertyChange) {
-                    renamePropertyChange.apply(model);
-                }
-                if (change instanceof RenameResourceChange renameResourceChange) {
-                    renameResourceChange.apply(model);
-                }
-                if (change instanceof RenameClassChange renameClassChange) {
-                    renameClassChange.apply(model);
-                }
-                if (change instanceof AddClassChange addClassChange) {
-                    addClassChange.apply(model);
-                }
-                if (change instanceof AddResourceChange addResourceChange) {
-                    addResourceChange.apply(model);
-                }
-                if (change instanceof DeleteClassChange deleteClassChange) {
-                    deleteClassChange.apply(model);
-                }
-                if (change instanceof DeleteResourceChange deleteResourceChange) {
-                    deleteResourceChange.apply(model);
-                }
-                if (change instanceof DeletePropertyChange deletePropertyChange) {
-                    deletePropertyChange.apply(model);
-                }
-                if(change instanceof AddPropertyChange addPropertyChange) {
-                    addPropertyChange.apply(model);
-                }
-                if(change instanceof SparqlUpdateChange sparqlUpdateChange) {
-                    sparqlUpdateChange.apply(model);
-                }
-
-            }
-        }
-        System.out.println("Migration finished.");
-    }*/
 
 }

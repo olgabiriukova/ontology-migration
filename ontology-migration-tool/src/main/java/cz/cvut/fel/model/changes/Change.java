@@ -27,5 +27,5 @@ public abstract class Change {
         return this.getClass().getSimpleName();
     }
 
-    public abstract void apply(FusekiRepository repository);
+    public abstract String apply(FusekiRepository repository);
 }

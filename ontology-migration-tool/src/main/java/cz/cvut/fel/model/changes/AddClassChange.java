@@ -3,7 +3,7 @@ package cz.cvut.fel.model.changes;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import cz.cvut.fel.fuseki.FusekiRepository;
 
-public class AddClassChange extends Change{
+public class  AddClassChange extends Change{
     @JsonProperty("uri")
     private String uri;
 
@@ -17,7 +17,7 @@ public class AddClassChange extends Change{
     public AddClassChange(){}
 
     @Override
-    public void apply(FusekiRepository repository) {
+    public String apply(FusekiRepository repository) {
         StringBuilder sb = new StringBuilder();
         sb.append("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> ")
             .append("PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> ")
@@ -27,8 +27,8 @@ public class AddClassChange extends Change{
             sb.append(String.format("<%s> rdfs:label \"%s\" . ", uri, label));
         }
         sb.append("}");
-        repository.update(sb.toString());
+        //repository.update(sb.toString());
         System.out.println("Class added: " + uri);
-
+        return sb.toString();
     }
 }

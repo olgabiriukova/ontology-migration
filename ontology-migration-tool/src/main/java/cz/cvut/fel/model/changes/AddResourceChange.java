@@ -19,7 +19,7 @@ public class AddResourceChange extends Change{
     public AddResourceChange(){}
 
     @Override
-    public void apply(FusekiRepository repository) {
+    public String apply(FusekiRepository repository) {
         StringBuilder sb = new StringBuilder();
         sb.append("INSERT DATA { ");
         if (classUri != null) {
@@ -29,7 +29,8 @@ public class AddResourceChange extends Change{
             sb.append(String.format("<%s> <http://www.w3.org/2000/01/rdf-schema#label> \"%s\" . ", uri, label));
         }
         sb.append(" }");
-        repository.update(sb.toString());
+        //repository.update(sb.toString());
         System.out.println("Resource added: " + uri);
+        return sb.toString();
     }
 }
