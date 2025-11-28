@@ -4,63 +4,36 @@ changeSets:
       - type: "renameResource"
         oldName: "http://example.org/OldClass"
         newName: "http://example.org/NewClass"
-        graph: "http://example.org/graph1"
 
       - type: "renameResource"
         oldName: "http://example.org/OldResource"
         newName: "http://example.org/NewResource"
-        graph: "http://example.org/graph1"
 
       - type: "renameResource"
         oldName: "http://example.org/oldProperty"
         newName: "http://example.org/NewProperty"
-        graph: "http://example.org/graph1"
 
       - type: "addClass"
         uri: "http://example.org/Person"
         label: "Person Class"
-        graph: "http://example.org/graph1"
 
       - type: "addResource"
         uri: "http://example.org/Alice"
         classUri: "http://example.org/Person"
         label: "Alice"
-        graph: "http://example.org/graph1"
 
       - type: "addResource"
         uri: "http://example.org/Bob"
         classUri: "http://example.org/Person"
         label: "Bob"
-        graph: "http://example.org/graph1"
 
       - type: "addProperty"
         subjectURI: "http://example.org/Alice"
         propertyURI: "http://example.org/knows"
         objectURI: "http://example.org/Bob"
-        graph: "http://example.org/graph1"
 
   - id: "2"
     changes:
-      - type: "deleteResource"
-        uri: "http://example.org/knows"
-        graph: "http://example.org/graph1"
-
-      - type: "deleteResource"
-        uri: "http://example.org/ErrorResource"
-        graph: "http://example.org/graph1"
-
-      - type: "deleteResource"
-        uri: "http://example.org/Alice"
-        graph: "http://example.org/graph1"
-
-      - type: "deleteResource"
-        uri: "http://example.org/Bob"
-        graph: "http://example.org/graph1"
-
-      - type: "deleteResource"
-        uri: "http://example.org/Person"
-        graph: "http://example.org/graph1"
-
       - type: "sparqlUpdate"
         query: |
           INSERT DATA {

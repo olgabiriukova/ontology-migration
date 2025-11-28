@@ -198,3 +198,964 @@ org.eclipse.rdf4j.http.server.ClientHTTPException: Unknown repository: ontology
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
 	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2025-11-28 18:09:40,671 [main] Logback logging API implementation is configured.
+[INFO ] 2025-11-28 18:09:41,272 [main] Completed initialization in 906 ms
+[INFO ] 2025-11-28 18:13:34,497 [http-nio-8080-exec-4] Request for query 3392903 is finished
+[INFO ] 2025-11-28 18:13:35,094 [http-nio-8080-exec-5] Request for query 3392903 is finished
+[INFO ] 2025-11-28 18:20:18,876 [http-nio-8080-exec-1] Request for query 3392903 is finished
+[INFO ] 2025-11-28 18:20:18,976 [http-nio-8080-exec-6] Request for query 3392903 is finished
+[INFO ] 2025-11-28 18:20:19,052 [repositories/ontology] PUT request invoked for repository 'ontology'
+[INFO ] 2025-11-28 18:20:19,223 [http-nio-8080-exec-8] Request for query 3392903 is finished
+[INFO ] 2025-11-28 18:20:19,243 [http-nio-8080-exec-5] Request for query 3392903 is finished
+[INFO ] 2025-11-28 18:20:19,660 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 18:20:19,680 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 18:20:19,735 [http-nio-8080-exec-2] Request for query 3392903 is finished
+[INFO ] 2025-11-28 18:20:39,353 [repositories/ontology] POST transaction start
+[INFO ] 2025-11-28 18:20:39,388 [repositories/SYSTEM] POST transaction start
+[INFO ] 2025-11-28 18:20:39,434 [repositories/SYSTEM] transaction started
+[INFO ] 2025-11-28 18:20:39,437 [repositories/ontology] transaction started
+[INFO ] 2025-11-28 18:20:39,453 [repositories/ontology] PUT txn operation
+[INFO ] 2025-11-28 18:20:39,467 [repositories/SYSTEM] PUT txn operation
+[ERROR] 2025-11-28 18:20:39,473 [repositories/SYSTEM] Error while handling request (500)
+org.eclipse.rdf4j.http.server.ServerHTTPException: Transaction handling error: java.util.concurrent.ExecutionException: java.lang.UnsupportedOperationException: Query operations are not supported on the SYSTEM repository
+	at org.eclipse.rdf4j.http.server.repository.transaction.TransactionController.processModificationOperation(TransactionController.java:283)
+	at org.eclipse.rdf4j.http.server.repository.transaction.TransactionController.handleRequestInternal(TransactionController.java:193)
+	at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:177)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:51)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:920)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:558)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:197)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.catalina.filters.SetCharacterEncodingFilter.doFilter(SetCharacterEncodingFilter.java:115)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at com.github.ziplet.filter.compression.CompressingFilter.doFilter(CompressingFilter.java:263)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:90)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:653)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1833)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: org.eclipse.rdf4j.http.server.ServerHTTPException: java.util.concurrent.ExecutionException: java.lang.UnsupportedOperationException: Query operations are not supported on the SYSTEM repository
+	at org.eclipse.rdf4j.http.server.repository.transaction.TransactionController.getSparqlUpdateResult(TransactionController.java:685)
+	at org.eclipse.rdf4j.http.server.repository.transaction.TransactionController.processModificationOperation(TransactionController.java:261)
+	... 38 common frames omitted
+Caused by: java.util.concurrent.ExecutionException: java.lang.UnsupportedOperationException: Query operations are not supported on the SYSTEM repository
+	at java.base/java.util.concurrent.FutureTask.report(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.get(Unknown Source)
+	at org.eclipse.rdf4j.http.server.repository.transaction.Transaction.getFromFuture(Transaction.java:459)
+	at org.eclipse.rdf4j.http.server.repository.transaction.Transaction.executeUpdate(Transaction.java:352)
+	at org.eclipse.rdf4j.http.server.repository.transaction.TransactionController.getSparqlUpdateResult(TransactionController.java:676)
+	... 39 common frames omitted
+Caused by: java.lang.UnsupportedOperationException: Query operations are not supported on the SYSTEM repository
+	at org.eclipse.rdf4j.http.server.repository.RepositoryConfigRepository$1.unsupported(RepositoryConfigRepository.java:319)
+	at org.eclipse.rdf4j.http.server.repository.RepositoryConfigRepository$1.prepareUpdate(RepositoryConfigRepository.java:273)
+	at org.eclipse.rdf4j.http.server.repository.transaction.Transaction.lambda$executeUpdate$10(Transaction.java:340)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	... 1 common frames omitted
+[WARN ] 2025-11-28 18:20:39,477 [rdf4j-transaction-0] Server reports problem: null (enable debug logging for full details)
+[ERROR] 2025-11-28 18:20:39,478 [repositories/ontology] Error while handling request (500)
+org.eclipse.rdf4j.http.server.ServerHTTPException: Transaction handling error: java.util.concurrent.ExecutionException: org.eclipse.rdf4j.repository.http.HTTPUpdateExecutionException: Transaction handling error: java.util.concurrent.ExecutionException: java.lang.UnsupportedOperationException: Query operations are not supported on the SYSTEM repository
+	at org.eclipse.rdf4j.http.server.repository.transaction.TransactionController.processModificationOperation(TransactionController.java:283)
+	at org.eclipse.rdf4j.http.server.repository.transaction.TransactionController.handleRequestInternal(TransactionController.java:193)
+	at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:177)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:51)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:920)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:558)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:197)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.catalina.filters.SetCharacterEncodingFilter.doFilter(SetCharacterEncodingFilter.java:115)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at com.github.ziplet.filter.compression.CompressingFilter.doFilter(CompressingFilter.java:263)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:90)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:653)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1833)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: org.eclipse.rdf4j.http.server.ServerHTTPException: java.util.concurrent.ExecutionException: org.eclipse.rdf4j.repository.http.HTTPUpdateExecutionException: Transaction handling error: java.util.concurrent.ExecutionException: java.lang.UnsupportedOperationException: Query operations are not supported on the SYSTEM repository
+	at org.eclipse.rdf4j.http.server.repository.transaction.TransactionController.getSparqlUpdateResult(TransactionController.java:685)
+	at org.eclipse.rdf4j.http.server.repository.transaction.TransactionController.processModificationOperation(TransactionController.java:261)
+	... 38 common frames omitted
+Caused by: java.util.concurrent.ExecutionException: org.eclipse.rdf4j.repository.http.HTTPUpdateExecutionException: Transaction handling error: java.util.concurrent.ExecutionException: java.lang.UnsupportedOperationException: Query operations are not supported on the SYSTEM repository
+	at java.base/java.util.concurrent.FutureTask.report(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.get(Unknown Source)
+	at org.eclipse.rdf4j.http.server.repository.transaction.Transaction.getFromFuture(Transaction.java:459)
+	at org.eclipse.rdf4j.http.server.repository.transaction.Transaction.executeUpdate(Transaction.java:352)
+	at org.eclipse.rdf4j.http.server.repository.transaction.TransactionController.getSparqlUpdateResult(TransactionController.java:676)
+	... 39 common frames omitted
+Caused by: org.eclipse.rdf4j.repository.http.HTTPUpdateExecutionException: Transaction handling error: java.util.concurrent.ExecutionException: java.lang.UnsupportedOperationException: Query operations are not supported on the SYSTEM repository
+	at org.eclipse.rdf4j.repository.http.HTTPUpdate.execute(HTTPUpdate.java:71)
+	at org.eclipse.rdf4j.http.server.repository.transaction.Transaction.lambda$executeUpdate$10(Transaction.java:349)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	... 1 common frames omitted
+Caused by: org.eclipse.rdf4j.repository.RepositoryException: Transaction handling error: java.util.concurrent.ExecutionException: java.lang.UnsupportedOperationException: Query operations are not supported on the SYSTEM repository
+	at org.eclipse.rdf4j.http.client.SPARQLProtocolSession.executeWithRedirects(SPARQLProtocolSession.java:1114)
+	at org.eclipse.rdf4j.http.client.SPARQLProtocolSession.execute(SPARQLProtocolSession.java:1062)
+	at org.eclipse.rdf4j.http.client.SPARQLProtocolSession.executeNoContent(SPARQLProtocolSession.java:1050)
+	at org.eclipse.rdf4j.http.client.SPARQLProtocolSession.sendUpdate(SPARQLProtocolSession.java:401)
+	at org.eclipse.rdf4j.repository.http.HTTPUpdate.execute(HTTPUpdate.java:65)
+	... 5 common frames omitted
+[WARN ] 2025-11-28 19:24:39,013 [rdf4j-cleanup-stn-scheduler] Rolling back transaction due to connection close
+java.lang.Throwable: null
+	at org.eclipse.rdf4j.repository.http.HTTPRepositoryConnection.close(HTTPRepositoryConnection.java:360)
+	at org.eclipse.rdf4j.http.server.repository.transaction.Transaction.close(Transaction.java:392)
+	at org.eclipse.rdf4j.http.server.repository.transaction.ActiveTransactionRegistry.lambda$new$0(ActiveTransactionRegistry.java:102)
+	at com.google.common.cache.LocalCache.processPendingNotifications(LocalCache.java:1851)
+	at com.google.common.cache.LocalCache$Segment.runUnlockedCleanup(LocalCache.java:3508)
+	at com.google.common.cache.LocalCache$Segment.postWriteCleanup(LocalCache.java:3484)
+	at com.google.common.cache.LocalCache$Segment.remove(LocalCache.java:3113)
+	at com.google.common.cache.LocalCache.remove(LocalCache.java:4316)
+	at com.google.common.cache.LocalCache$LocalManualCache.invalidate(LocalCache.java:4961)
+	at org.eclipse.rdf4j.http.server.repository.transaction.ActiveTransactionRegistry.lambda$new$1(ActiveTransactionRegistry.java:118)
+	at com.google.common.cache.LocalCache.processPendingNotifications(LocalCache.java:1851)
+	at com.google.common.cache.LocalCache$Segment.runUnlockedCleanup(LocalCache.java:3508)
+	at com.google.common.cache.LocalCache$Segment.cleanUp(LocalCache.java:3490)
+	at com.google.common.cache.LocalCache.cleanUp(LocalCache.java:3955)
+	at com.google.common.cache.LocalCache$LocalManualCache.cleanUp(LocalCache.java:4996)
+	at org.eclipse.rdf4j.http.server.repository.transaction.ActiveTransactionRegistry.cleanUpSecondaryCache(ActiveTransactionRegistry.java:150)
+	at org.eclipse.rdf4j.http.server.repository.transaction.ActiveTransactionRegistry.lambda$new$3(ActiveTransactionRegistry.java:142)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2025-11-28 19:25:21,461 [http-nio-8080-exec-1] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:25:21,536 [http-nio-8080-exec-6] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:25:24,841 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:25:24,843 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:25:24,884 [http-nio-8080-exec-1] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:25:38,375 [repositories/ontology] GET namespace list
+[INFO ] 2025-11-28 19:25:38,380 [repositories/SYSTEM] GET namespace list
+[INFO ] 2025-11-28 19:25:38,399 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:25:38,430 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:25:38,510 [http-nio-8080-exec-1] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:25:47,987 [http-nio-8080-exec-3] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:25:51,594 [http-nio-8080-exec-10] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:25:51,641 [http-nio-8080-exec-6] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:25:52,455 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:25:52,456 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:25:52,497 [http-nio-8080-exec-9] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:25:54,201 [http-nio-8080-exec-2] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:25:54,246 [http-nio-8080-exec-7] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:25:56,732 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:25:56,733 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:25:56,769 [http-nio-8080-exec-5] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:25:58,520 [repositories/ontology] GET namespace list
+[INFO ] 2025-11-28 19:25:58,524 [repositories/SYSTEM] GET namespace list
+[INFO ] 2025-11-28 19:25:58,544 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:25:58,545 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:25:58,593 [http-nio-8080-exec-9] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:26:03,174 [repositories/ontology] GET namespace list
+[INFO ] 2025-11-28 19:26:03,179 [repositories/SYSTEM] GET namespace list
+[INFO ] 2025-11-28 19:26:03,201 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:26:03,203 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:26:03,234 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:26:03,235 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:26:03,282 [http-nio-8080-exec-6] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:26:03,880 [repositories/ontology] GET namespace list
+[INFO ] 2025-11-28 19:26:03,884 [repositories/SYSTEM] GET namespace list
+[INFO ] 2025-11-28 19:26:03,903 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:26:03,906 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:26:04,087 [repositories/ontology] POST query -1598642565
+[INFO ] 2025-11-28 19:26:04,128 [repositories/SYSTEM] POST query -1598642565
+[ERROR] 2025-11-28 19:26:04,129 [repositories/SYSTEM] Error while handling request
+java.lang.UnsupportedOperationException: Query operations are not supported on the SYSTEM repository
+	at org.eclipse.rdf4j.http.server.repository.RepositoryConfigRepository$1.unsupported(RepositoryConfigRepository.java:319)
+	at org.eclipse.rdf4j.http.server.repository.RepositoryConfigRepository$1.prepareQuery(RepositoryConfigRepository.java:249)
+	at org.eclipse.rdf4j.http.server.repository.handler.DefaultQueryRequestHandler.getQuery(DefaultQueryRequestHandler.java:193)
+	at org.eclipse.rdf4j.http.server.repository.handler.AbstractQueryRequestHandler.handleQueryRequest(AbstractQueryRequestHandler.java:75)
+	at org.eclipse.rdf4j.http.server.repository.AbstractRepositoryController.handleRequestInternal(AbstractRepositoryController.java:53)
+	at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:177)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:51)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:197)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.catalina.filters.SetCharacterEncodingFilter.doFilter(SetCharacterEncodingFilter.java:115)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at com.github.ziplet.filter.compression.CompressingFilter.doFilter(CompressingFilter.java:263)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:90)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:653)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1833)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2025-11-28 19:26:04,131 [repositories/ontology] Server reports problem: null (enable debug logging for full details)
+[INFO ] 2025-11-28 19:26:04,132 [repositories/ontology] Query evaluation error
+org.eclipse.rdf4j.repository.http.HTTPQueryEvaluationException: Query operations are not supported on the SYSTEM repository
+	at org.eclipse.rdf4j.repository.http.HTTPTupleQuery.evaluate(HTTPTupleQuery.java:55)
+	at org.eclipse.rdf4j.http.server.repository.handler.DefaultQueryRequestHandler.evaluateQuery(DefaultQueryRequestHandler.java:121)
+	at org.eclipse.rdf4j.http.server.repository.handler.DefaultQueryRequestHandler.evaluateQuery(DefaultQueryRequestHandler.java:100)
+	at org.eclipse.rdf4j.http.server.repository.handler.AbstractQueryRequestHandler.handleQueryRequest(AbstractQueryRequestHandler.java:89)
+	at org.eclipse.rdf4j.http.server.repository.AbstractRepositoryController.handleRequestInternal(AbstractRepositoryController.java:53)
+	at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:177)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:51)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:197)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.catalina.filters.SetCharacterEncodingFilter.doFilter(SetCharacterEncodingFilter.java:115)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at com.github.ziplet.filter.compression.CompressingFilter.doFilter(CompressingFilter.java:263)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:90)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:653)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1833)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: org.eclipse.rdf4j.repository.RepositoryException: Query operations are not supported on the SYSTEM repository
+	at org.eclipse.rdf4j.http.client.SPARQLProtocolSession.executeWithRedirects(SPARQLProtocolSession.java:1114)
+	at org.eclipse.rdf4j.http.client.SPARQLProtocolSession.execute(SPARQLProtocolSession.java:1062)
+	at org.eclipse.rdf4j.http.client.SPARQLProtocolSession.executeOK(SPARQLProtocolSession.java:1030)
+	at org.eclipse.rdf4j.http.client.SPARQLProtocolSession.sendTupleQueryViaHttp(SPARQLProtocolSession.java:783)
+	at org.eclipse.rdf4j.http.client.SPARQLProtocolSession.getBackgroundTupleQueryResult(SPARQLProtocolSession.java:678)
+	at org.eclipse.rdf4j.http.client.SPARQLProtocolSession.sendTupleQuery(SPARQLProtocolSession.java:378)
+	at org.eclipse.rdf4j.repository.http.HTTPTupleQuery.evaluate(HTTPTupleQuery.java:52)
+	... 41 common frames omitted
+[ERROR] 2025-11-28 19:26:04,134 [repositories/ontology] Error while handling request (500)
+org.eclipse.rdf4j.http.server.ServerHTTPException: Query evaluation error: Query operations are not supported on the SYSTEM repository
+	at org.eclipse.rdf4j.http.server.repository.handler.AbstractQueryRequestHandler.handleQueryRequest(AbstractQueryRequestHandler.java:117)
+	at org.eclipse.rdf4j.http.server.repository.AbstractRepositoryController.handleRequestInternal(AbstractRepositoryController.java:53)
+	at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:177)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:51)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:197)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.catalina.filters.SetCharacterEncodingFilter.doFilter(SetCharacterEncodingFilter.java:115)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at com.github.ziplet.filter.compression.CompressingFilter.doFilter(CompressingFilter.java:263)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:90)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:653)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1833)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2025-11-28 19:26:08,064 [repositories/ontology] GET namespace list
+[INFO ] 2025-11-28 19:26:08,068 [repositories/SYSTEM] GET namespace list
+[INFO ] 2025-11-28 19:26:08,084 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:26:08,086 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:26:08,134 [http-nio-8080-exec-7] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:26:13,471 [repositories/ontology] GET statements
+[INFO ] 2025-11-28 19:26:13,530 [repositories/SYSTEM] GET statements
+[INFO ] 2025-11-28 19:26:13,576 [repositories/SYSTEM] GET statements
+[INFO ] 2025-11-28 19:26:13,906 [http-nio-8080-exec-6] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:26:16,159 [repositories/ontology] GET namespace list
+[INFO ] 2025-11-28 19:26:16,164 [repositories/SYSTEM] GET namespace list
+[INFO ] 2025-11-28 19:26:16,181 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:26:16,182 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:26:16,222 [http-nio-8080-exec-2] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:26:16,232 [repositories/ontology] GET namespace list
+[INFO ] 2025-11-28 19:26:16,233 [repositories/SYSTEM] GET namespace list
+[INFO ] 2025-11-28 19:26:16,248 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:26:16,249 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:27:34,653 [http-nio-8080-exec-3] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:27:38,121 [http-nio-8080-exec-5] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:27:38,273 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:27:38,274 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:27:38,318 [http-nio-8080-exec-5] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:27:53,023 [repositories/ontology] POST transaction start
+[INFO ] 2025-11-28 19:27:53,031 [repositories/SYSTEM] POST transaction start
+[INFO ] 2025-11-28 19:29:47,559 [repositories/ontology] GET namespace list
+[INFO ] 2025-11-28 19:29:47,564 [repositories/SYSTEM] GET namespace list
+[INFO ] 2025-11-28 19:29:47,585 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:29:47,587 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:29:47,641 [http-nio-8080-exec-8] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:29:47,654 [repositories/ontology] GET namespace list
+[INFO ] 2025-11-28 19:29:47,658 [repositories/SYSTEM] GET namespace list
+[INFO ] 2025-11-28 19:29:47,682 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:29:47,683 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:29:52,847 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:29:52,848 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:29:52,887 [http-nio-8080-exec-6] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:30:49,253 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:30:49,254 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:30:49,299 [http-nio-8080-exec-10] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:32:33,514 [http-nio-8080-exec-8] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:32:33,561 [http-nio-8080-exec-9] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:32:34,722 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:32:34,723 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:32:34,764 [http-nio-8080-exec-5] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:32:35,967 [http-nio-8080-exec-10] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:32:36,007 [http-nio-8080-exec-5] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:32:41,161 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:32:41,162 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:32:41,197 [http-nio-8080-exec-6] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:32:50,311 [repositories/ontology] POST transaction start
+[INFO ] 2025-11-28 19:32:50,316 [repositories/SYSTEM] POST transaction start
+[INFO ] 2025-11-28 19:33:58,237 [repositories/ontology] POST transaction start
+[INFO ] 2025-11-28 19:33:58,244 [repositories/SYSTEM] POST transaction start
+[INFO ] 2025-11-28 19:34:34,053 [http-nio-8080-exec-5] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:08,735 [http-nio-8080-exec-10] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:10,197 [http-nio-8080-exec-5] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:10,424 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:10,424 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:10,467 [http-nio-8080-exec-10] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:14,809 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:14,810 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:14,857 [http-nio-8080-exec-3] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:15,453 [repositories/ontology] GET namespace list
+[INFO ] 2025-11-28 19:35:15,456 [repositories/SYSTEM] GET namespace list
+[INFO ] 2025-11-28 19:35:15,480 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:15,481 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:15,530 [http-nio-8080-exec-11] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:21,187 [repositories/ontology] GET namespace list
+[INFO ] 2025-11-28 19:35:21,193 [repositories/SYSTEM] GET namespace list
+[INFO ] 2025-11-28 19:35:21,215 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:21,218 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:21,277 [http-nio-8080-exec-11] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:26,642 [repositories/ontology] GET namespace list
+[INFO ] 2025-11-28 19:35:26,650 [repositories/SYSTEM] GET namespace list
+[INFO ] 2025-11-28 19:35:26,683 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:26,684 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:26,728 [http-nio-8080-exec-11] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:26,739 [repositories/ontology] GET namespace list
+[INFO ] 2025-11-28 19:35:26,741 [repositories/SYSTEM] GET namespace list
+[INFO ] 2025-11-28 19:35:26,760 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:26,761 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:28,256 [repositories/ontology] GET namespace list
+[INFO ] 2025-11-28 19:35:28,258 [repositories/SYSTEM] GET namespace list
+[INFO ] 2025-11-28 19:35:28,279 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:28,281 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:28,321 [http-nio-8080-exec-12] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:28,805 [repositories/ontology] GET namespace list
+[INFO ] 2025-11-28 19:35:28,809 [repositories/SYSTEM] GET namespace list
+[INFO ] 2025-11-28 19:35:28,852 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:28,853 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:28,896 [http-nio-8080-exec-12] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:28,907 [repositories/ontology] GET namespace list
+[INFO ] 2025-11-28 19:35:28,910 [repositories/SYSTEM] GET namespace list
+[INFO ] 2025-11-28 19:35:28,930 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:28,932 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:56,620 [repositories/ontology] GET namespace list
+[INFO ] 2025-11-28 19:35:56,624 [repositories/SYSTEM] GET namespace list
+[INFO ] 2025-11-28 19:35:56,643 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:56,646 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:56,688 [http-nio-8080-exec-11] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:56,698 [repositories/ontology] GET namespace list
+[INFO ] 2025-11-28 19:35:56,699 [repositories/SYSTEM] GET namespace list
+[INFO ] 2025-11-28 19:35:56,718 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:35:56,719 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:36:03,975 [repositories/ontology] GET namespace list
+[INFO ] 2025-11-28 19:36:03,979 [repositories/SYSTEM] GET namespace list
+[INFO ] 2025-11-28 19:36:03,994 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:36:03,995 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:36:04,030 [repositories/ontology] POST query 141558801
+[INFO ] 2025-11-28 19:36:04,049 [repositories/SYSTEM] POST query 141558801
+[ERROR] 2025-11-28 19:36:04,051 [repositories/SYSTEM] Error while handling request
+java.lang.UnsupportedOperationException: Query operations are not supported on the SYSTEM repository
+	at org.eclipse.rdf4j.http.server.repository.RepositoryConfigRepository$1.unsupported(RepositoryConfigRepository.java:319)
+	at org.eclipse.rdf4j.http.server.repository.RepositoryConfigRepository$1.prepareQuery(RepositoryConfigRepository.java:249)
+	at org.eclipse.rdf4j.http.server.repository.handler.DefaultQueryRequestHandler.getQuery(DefaultQueryRequestHandler.java:193)
+	at org.eclipse.rdf4j.http.server.repository.handler.AbstractQueryRequestHandler.handleQueryRequest(AbstractQueryRequestHandler.java:75)
+	at org.eclipse.rdf4j.http.server.repository.AbstractRepositoryController.handleRequestInternal(AbstractRepositoryController.java:53)
+	at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:177)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:51)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:197)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.catalina.filters.SetCharacterEncodingFilter.doFilter(SetCharacterEncodingFilter.java:115)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at com.github.ziplet.filter.compression.CompressingFilter.doFilter(CompressingFilter.java:263)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:90)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:653)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1833)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[WARN ] 2025-11-28 19:36:04,055 [repositories/ontology] Server reports problem: null (enable debug logging for full details)
+[INFO ] 2025-11-28 19:36:04,057 [repositories/ontology] Query evaluation error
+org.eclipse.rdf4j.repository.http.HTTPQueryEvaluationException: Query operations are not supported on the SYSTEM repository
+	at org.eclipse.rdf4j.repository.http.HTTPTupleQuery.evaluate(HTTPTupleQuery.java:55)
+	at org.eclipse.rdf4j.http.server.repository.handler.DefaultQueryRequestHandler.evaluateQuery(DefaultQueryRequestHandler.java:121)
+	at org.eclipse.rdf4j.http.server.repository.handler.DefaultQueryRequestHandler.evaluateQuery(DefaultQueryRequestHandler.java:100)
+	at org.eclipse.rdf4j.http.server.repository.handler.AbstractQueryRequestHandler.handleQueryRequest(AbstractQueryRequestHandler.java:89)
+	at org.eclipse.rdf4j.http.server.repository.AbstractRepositoryController.handleRequestInternal(AbstractRepositoryController.java:53)
+	at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:177)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:51)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:197)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.catalina.filters.SetCharacterEncodingFilter.doFilter(SetCharacterEncodingFilter.java:115)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at com.github.ziplet.filter.compression.CompressingFilter.doFilter(CompressingFilter.java:263)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:90)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:653)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1833)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: org.eclipse.rdf4j.repository.RepositoryException: Query operations are not supported on the SYSTEM repository
+	at org.eclipse.rdf4j.http.client.SPARQLProtocolSession.executeWithRedirects(SPARQLProtocolSession.java:1114)
+	at org.eclipse.rdf4j.http.client.SPARQLProtocolSession.execute(SPARQLProtocolSession.java:1062)
+	at org.eclipse.rdf4j.http.client.SPARQLProtocolSession.executeOK(SPARQLProtocolSession.java:1030)
+	at org.eclipse.rdf4j.http.client.SPARQLProtocolSession.sendTupleQueryViaHttp(SPARQLProtocolSession.java:783)
+	at org.eclipse.rdf4j.http.client.SPARQLProtocolSession.getBackgroundTupleQueryResult(SPARQLProtocolSession.java:678)
+	at org.eclipse.rdf4j.http.client.SPARQLProtocolSession.sendTupleQuery(SPARQLProtocolSession.java:378)
+	at org.eclipse.rdf4j.repository.http.HTTPTupleQuery.evaluate(HTTPTupleQuery.java:52)
+	... 41 common frames omitted
+[ERROR] 2025-11-28 19:36:04,060 [repositories/ontology] Error while handling request (500)
+org.eclipse.rdf4j.http.server.ServerHTTPException: Query evaluation error: Query operations are not supported on the SYSTEM repository
+	at org.eclipse.rdf4j.http.server.repository.handler.AbstractQueryRequestHandler.handleQueryRequest(AbstractQueryRequestHandler.java:117)
+	at org.eclipse.rdf4j.http.server.repository.AbstractRepositoryController.handleRequestInternal(AbstractRepositoryController.java:53)
+	at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:177)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:51)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:197)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.catalina.filters.SetCharacterEncodingFilter.doFilter(SetCharacterEncodingFilter.java:115)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at com.github.ziplet.filter.compression.CompressingFilter.doFilter(CompressingFilter.java:263)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:90)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:653)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1833)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2025-11-28 19:36:04,099 [http-nio-8080-exec-5] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:36:04,108 [repositories/ontology] GET namespace list
+[INFO ] 2025-11-28 19:36:04,112 [repositories/SYSTEM] GET namespace list
+[INFO ] 2025-11-28 19:36:04,133 [repositories/SYSTEM] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:36:04,134 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:36:30,656 [http-nio-8080-exec-3] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:36:30,703 [http-nio-8080-exec-12] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:36:34,648 [http-nio-8080-exec-10] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:36:37,329 [http-nio-8080-exec-11] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:36:38,923 [http-nio-8080-exec-10] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:36:45,512 [http-nio-8080-exec-5] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:36:46,654 [http-nio-8080-exec-13] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:36:48,725 [http-nio-8080-exec-13] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:36:48,917 [http-nio-8080-exec-3] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:36:48,925 [repositories/ontology] DELETE request invoked for repository 'ontology'
+[WARN ] 2025-11-28 19:36:48,947 [rdf4j-transaction-0] Closing stale connection
+[INFO ] 2025-11-28 19:36:48,948 [rdf4j-transaction-0] I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:8080: Socket closed
+[WARN ] 2025-11-28 19:36:48,948 [rdf4j-transaction-0] Closing stale connection
+[INFO ] 2025-11-28 19:36:48,948 [rdf4j-transaction-0] Retrying request to {}->http://localhost:8080
+[INFO ] 2025-11-28 19:36:48,949 [rdf4j-transaction-0] I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:8080: Socket closed
+[WARN ] 2025-11-28 19:36:48,949 [rdf4j-transaction-0] Closing stale connection
+[INFO ] 2025-11-28 19:36:48,949 [rdf4j-transaction-0] Retrying request to {}->http://localhost:8080
+[INFO ] 2025-11-28 19:36:48,949 [rdf4j-transaction-0] I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:8080: Socket closed
+[INFO ] 2025-11-28 19:36:48,950 [rdf4j-transaction-0] Retrying request to {}->http://localhost:8080
+[ERROR] 2025-11-28 19:36:48,951 [repositories/ontology] Error while handling request (500)
+org.eclipse.rdf4j.http.server.ServerHTTPException: java.util.concurrent.ExecutionException: org.eclipse.rdf4j.repository.RepositoryException: java.lang.IllegalStateException: Connection pool shut down
+	at org.eclipse.rdf4j.http.server.repository.transaction.TransactionStartController.startTransaction(TransactionStartController.java:158)
+	at org.eclipse.rdf4j.http.server.repository.transaction.TransactionStartController.handleRequestInternal(TransactionStartController.java:69)
+	at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:177)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:51)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:197)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.catalina.filters.SetCharacterEncodingFilter.doFilter(SetCharacterEncodingFilter.java:115)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at com.github.ziplet.filter.compression.CompressingFilter.doFilter(CompressingFilter.java:263)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:90)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:653)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1833)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.util.concurrent.ExecutionException: org.eclipse.rdf4j.repository.RepositoryException: java.lang.IllegalStateException: Connection pool shut down
+	at java.base/java.util.concurrent.FutureTask.report(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.get(Unknown Source)
+	at org.eclipse.rdf4j.http.server.repository.transaction.Transaction.getFromFuture(Transaction.java:459)
+	at org.eclipse.rdf4j.http.server.repository.transaction.Transaction.begin(Transaction.java:134)
+	at org.eclipse.rdf4j.http.server.repository.transaction.TransactionStartController.startTransaction(TransactionStartController.java:139)
+	... 38 common frames omitted
+Caused by: org.eclipse.rdf4j.repository.RepositoryException: java.lang.IllegalStateException: Connection pool shut down
+	at org.eclipse.rdf4j.repository.http.HTTPRepositoryConnection.begin(HTTPRepositoryConnection.java:190)
+	at org.eclipse.rdf4j.http.server.repository.transaction.Transaction.lambda$begin$0(Transaction.java:131)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	... 1 common frames omitted
+Caused by: java.lang.IllegalStateException: Connection pool shut down
+	at org.apache.http.util.Asserts.check(Asserts.java:34)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.requestConnection(PoolingHttpClientConnectionManager.java:269)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:176)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.ServiceUnavailableRetryExec.execute(ServiceUnavailableRetryExec.java:85)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+	at org.eclipse.rdf4j.http.client.SPARQLProtocolSession.executeWithRedirects(SPARQLProtocolSession.java:1071)
+	at org.eclipse.rdf4j.http.client.SPARQLProtocolSession.execute(SPARQLProtocolSession.java:1062)
+	at org.eclipse.rdf4j.http.client.RDF4JProtocolSession.beginTransaction(RDF4JProtocolSession.java:664)
+	at org.eclipse.rdf4j.repository.http.HTTPRepositoryConnection.begin(HTTPRepositoryConnection.java:185)
+	... 5 common frames omitted
+[ERROR] 2025-11-28 19:36:48,951 [repositories/ontology] Error while handling request (500)
+org.eclipse.rdf4j.http.server.ServerHTTPException: java.util.concurrent.ExecutionException: org.eclipse.rdf4j.repository.RepositoryException: java.lang.IllegalStateException: Connection pool shut down
+	at org.eclipse.rdf4j.http.server.repository.transaction.TransactionStartController.startTransaction(TransactionStartController.java:158)
+	at org.eclipse.rdf4j.http.server.repository.transaction.TransactionStartController.handleRequestInternal(TransactionStartController.java:69)
+	at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:177)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:51)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:197)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.catalina.filters.SetCharacterEncodingFilter.doFilter(SetCharacterEncodingFilter.java:115)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at com.github.ziplet.filter.compression.CompressingFilter.doFilter(CompressingFilter.java:263)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:90)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:653)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1833)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.util.concurrent.ExecutionException: org.eclipse.rdf4j.repository.RepositoryException: java.lang.IllegalStateException: Connection pool shut down
+	at java.base/java.util.concurrent.FutureTask.report(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.get(Unknown Source)
+	at org.eclipse.rdf4j.http.server.repository.transaction.Transaction.getFromFuture(Transaction.java:459)
+	at org.eclipse.rdf4j.http.server.repository.transaction.Transaction.begin(Transaction.java:134)
+	at org.eclipse.rdf4j.http.server.repository.transaction.TransactionStartController.startTransaction(TransactionStartController.java:139)
+	... 38 common frames omitted
+Caused by: org.eclipse.rdf4j.repository.RepositoryException: java.lang.IllegalStateException: Connection pool shut down
+	at org.eclipse.rdf4j.repository.http.HTTPRepositoryConnection.begin(HTTPRepositoryConnection.java:190)
+	at org.eclipse.rdf4j.http.server.repository.transaction.Transaction.lambda$begin$0(Transaction.java:131)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	... 1 common frames omitted
+Caused by: java.lang.IllegalStateException: Connection pool shut down
+	at org.apache.http.util.Asserts.check(Asserts.java:34)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.requestConnection(PoolingHttpClientConnectionManager.java:269)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:176)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.ServiceUnavailableRetryExec.execute(ServiceUnavailableRetryExec.java:85)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+	at org.eclipse.rdf4j.http.client.SPARQLProtocolSession.executeWithRedirects(SPARQLProtocolSession.java:1071)
+	at org.eclipse.rdf4j.http.client.SPARQLProtocolSession.execute(SPARQLProtocolSession.java:1062)
+	at org.eclipse.rdf4j.http.client.RDF4JProtocolSession.beginTransaction(RDF4JProtocolSession.java:664)
+	at org.eclipse.rdf4j.repository.http.HTTPRepositoryConnection.begin(HTTPRepositoryConnection.java:185)
+	... 5 common frames omitted
+[ERROR] 2025-11-28 19:36:48,951 [repositories/ontology] Error while handling request (500)
+org.eclipse.rdf4j.http.server.ServerHTTPException: java.util.concurrent.ExecutionException: org.eclipse.rdf4j.repository.RepositoryException: java.lang.IllegalStateException: Connection pool shut down
+	at org.eclipse.rdf4j.http.server.repository.transaction.TransactionStartController.startTransaction(TransactionStartController.java:158)
+	at org.eclipse.rdf4j.http.server.repository.transaction.TransactionStartController.handleRequestInternal(TransactionStartController.java:69)
+	at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:177)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:51)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:197)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.catalina.filters.SetCharacterEncodingFilter.doFilter(SetCharacterEncodingFilter.java:115)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at com.github.ziplet.filter.compression.CompressingFilter.doFilter(CompressingFilter.java:263)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:90)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:653)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1833)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.util.concurrent.ExecutionException: org.eclipse.rdf4j.repository.RepositoryException: java.lang.IllegalStateException: Connection pool shut down
+	at java.base/java.util.concurrent.FutureTask.report(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.get(Unknown Source)
+	at org.eclipse.rdf4j.http.server.repository.transaction.Transaction.getFromFuture(Transaction.java:459)
+	at org.eclipse.rdf4j.http.server.repository.transaction.Transaction.begin(Transaction.java:134)
+	at org.eclipse.rdf4j.http.server.repository.transaction.TransactionStartController.startTransaction(TransactionStartController.java:139)
+	... 38 common frames omitted
+Caused by: org.eclipse.rdf4j.repository.RepositoryException: java.lang.IllegalStateException: Connection pool shut down
+	at org.eclipse.rdf4j.repository.http.HTTPRepositoryConnection.begin(HTTPRepositoryConnection.java:190)
+	at org.eclipse.rdf4j.http.server.repository.transaction.Transaction.lambda$begin$0(Transaction.java:131)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	... 1 common frames omitted
+Caused by: java.lang.IllegalStateException: Connection pool shut down
+	at org.apache.http.util.Asserts.check(Asserts.java:34)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.requestConnection(PoolingHttpClientConnectionManager.java:269)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:176)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.ServiceUnavailableRetryExec.execute(ServiceUnavailableRetryExec.java:85)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+	at org.eclipse.rdf4j.http.client.SPARQLProtocolSession.executeWithRedirects(SPARQLProtocolSession.java:1071)
+	at org.eclipse.rdf4j.http.client.SPARQLProtocolSession.execute(SPARQLProtocolSession.java:1062)
+	at org.eclipse.rdf4j.http.client.RDF4JProtocolSession.beginTransaction(RDF4JProtocolSession.java:664)
+	at org.eclipse.rdf4j.repository.http.HTTPRepositoryConnection.begin(HTTPRepositoryConnection.java:185)
+	... 5 common frames omitted
+[WARN ] 2025-11-28 19:36:48,950 [rdf4j-cleanup-stn-scheduler] Closing stale connection
+[INFO ] 2025-11-28 19:36:48,960 [rdf4j-cleanup-stn-scheduler] I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:8080: Socket closed
+[INFO ] 2025-11-28 19:36:48,961 [rdf4j-cleanup-stn-scheduler] Retrying request to {}->http://localhost:8080
+[INFO ] 2025-11-28 19:36:48,964 [repositories/ontology] DELETE request successfully completed
+[INFO ] 2025-11-28 19:36:48,966 [repositories/SYSTEM] transaction started
+[INFO ] 2025-11-28 19:36:48,968 [repositories/SYSTEM] transaction started
+[INFO ] 2025-11-28 19:36:48,969 [repositories/SYSTEM] transaction started
+[ERROR] 2025-11-28 19:36:48,971 [repositories/SYSTEM] Error while handling request
+org.eclipse.rdf4j.repository.RepositoryException: transaction with id d2f0206a-23d3-4139-8d90-7776925a95df not registered.
+	at org.eclipse.rdf4j.http.server.repository.transaction.ActiveTransactionRegistry.getTransaction(ActiveTransactionRegistry.java:191)
+	at org.eclipse.rdf4j.http.server.repository.transaction.TransactionController.handleRequestInternal(TransactionController.java:121)
+	at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:177)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:51)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doDelete(FrameworkServlet.java:931)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:561)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:197)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.catalina.filters.SetCharacterEncodingFilter.doFilter(SetCharacterEncodingFilter.java:115)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at com.github.ziplet.filter.compression.CompressingFilter.doFilter(CompressingFilter.java:263)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:90)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:653)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1833)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[INFO ] 2025-11-28 19:36:48,979 [http-nio-8080-exec-10] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:36:53,985 [http-nio-8080-exec-8] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:37:10,923 [http-nio-8080-exec-3] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:37:10,968 [http-nio-8080-exec-7] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:37:10,973 [repositories/ontology] PUT request invoked for repository 'ontology'
+[INFO ] 2025-11-28 19:37:11,504 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:37:11,569 [http-nio-8080-exec-10] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:38:02,238 [http-nio-8080-exec-5] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:38:02,281 [http-nio-8080-exec-6] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:38:06,033 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:38:06,073 [http-nio-8080-exec-1] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:38:09,386 [http-nio-8080-exec-6] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:38:09,395 [repositories/ontology] GET namespace list
+[INFO ] 2025-11-28 19:38:09,396 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:38:11,426 [repositories/ontology] GET namespace list
+[INFO ] 2025-11-28 19:38:11,428 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:38:11,474 [http-nio-8080-exec-5] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:38:11,490 [repositories/ontology] GET namespace list
+[INFO ] 2025-11-28 19:38:11,494 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:38:13,917 [repositories/ontology] GET namespace list
+[INFO ] 2025-11-28 19:38:13,919 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:38:13,971 [repositories/ontology] POST query 141558801
+[INFO ] 2025-11-28 19:38:14,302 [repositories/ontology] Request for query 141558801 is finished
+[INFO ] 2025-11-28 19:38:14,393 [http-nio-8080-exec-1] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:38:31,461 [repositories/ontology] POST transaction start
+[INFO ] 2025-11-28 19:38:31,463 [repositories/ontology] transaction started
+[INFO ] 2025-11-28 19:38:31,474 [repositories/ontology] PUT txn operation
+[INFO ] 2025-11-28 19:38:31,529 [repositories/ontology] PUT txn operation request finished.
+[INFO ] 2025-11-28 19:38:31,535 [repositories/ontology] PUT txn operation
+[INFO ] 2025-11-28 19:38:31,539 [repositories/ontology] PUT txn operation request finished.
+[INFO ] 2025-11-28 19:38:31,544 [repositories/ontology] PUT txn operation
+[INFO ] 2025-11-28 19:38:31,547 [repositories/ontology] PUT txn operation request finished.
+[INFO ] 2025-11-28 19:38:31,551 [repositories/ontology] PUT txn operation
+[INFO ] 2025-11-28 19:38:31,565 [repositories/ontology] PUT txn operation request finished.
+[INFO ] 2025-11-28 19:38:31,571 [repositories/ontology] PUT txn operation
+[INFO ] 2025-11-28 19:38:31,575 [repositories/ontology] PUT txn operation request finished.
+[INFO ] 2025-11-28 19:38:31,579 [repositories/ontology] PUT txn operation
+[INFO ] 2025-11-28 19:38:31,581 [repositories/ontology] PUT txn operation request finished.
+[INFO ] 2025-11-28 19:38:31,586 [repositories/ontology] PUT txn operation
+[INFO ] 2025-11-28 19:38:31,587 [repositories/ontology] PUT txn operation request finished.
+[INFO ] 2025-11-28 19:38:31,591 [repositories/ontology] PUT txn operation
+[INFO ] 2025-11-28 19:38:31,617 [repositories/ontology] PUT txn operation request finished.
+[INFO ] 2025-11-28 19:38:31,622 [repositories/ontology] PUT txn operation
+[INFO ] 2025-11-28 19:38:31,624 [repositories/ontology] PUT txn operation request finished.
+[INFO ] 2025-11-28 19:38:31,629 [repositories/ontology] PUT txn operation
+[INFO ] 2025-11-28 19:38:31,646 [repositories/ontology] PUT txn operation request finished.
+[INFO ] 2025-11-28 19:38:31,651 [repositories/ontology] PUT txn operation
+[INFO ] 2025-11-28 19:38:31,661 [repositories/ontology] PUT txn operation request finished.
+[INFO ] 2025-11-28 19:38:31,666 [repositories/ontology] PUT txn operation
+[INFO ] 2025-11-28 19:38:31,677 [repositories/ontology] PUT txn operation request finished.
+[INFO ] 2025-11-28 19:38:31,683 [repositories/ontology] PUT txn operation
+[INFO ] 2025-11-28 19:38:31,688 [repositories/ontology] PUT txn operation request finished.
+[INFO ] 2025-11-28 19:38:31,696 [repositories/ontology] PUT txn operation
+[INFO ] 2025-11-28 19:38:31,767 [repositories/ontology] PUT txn operation request finished.
+[INFO ] 2025-11-28 19:38:44,328 [http-nio-8080-exec-4] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:38:44,370 [http-nio-8080-exec-13] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:38:45,585 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:38:45,631 [http-nio-8080-exec-3] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:38:50,984 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:38:51,020 [http-nio-8080-exec-13] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:38:53,122 [repositories/ontology] GET namespace list
+[INFO ] 2025-11-28 19:38:53,124 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:38:53,170 [http-nio-8080-exec-12] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:38:56,439 [repositories/ontology] GET namespace list
+[INFO ] 2025-11-28 19:38:56,440 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:38:56,445 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:38:56,490 [http-nio-8080-exec-11] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:38:59,135 [repositories/ontology] GET namespace list
+[INFO ] 2025-11-28 19:38:59,137 [repositories/ontology] Request for query 3392903 is finished
+[INFO ] 2025-11-28 19:38:59,140 [repositories/ontology] GET statements
+[INFO ] 2025-11-28 19:38:59,155 [repositories/ontology] GET statements
+[INFO ] 2025-11-28 19:38:59,161 [repositories/ontology] GET statements
+[INFO ] 2025-11-28 19:38:59,167 [repositories/ontology] GET statements
+[INFO ] 2025-11-28 19:38:59,174 [repositories/ontology] GET statements
+[INFO ] 2025-11-28 19:38:59,180 [repositories/ontology] GET statements
+[INFO ] 2025-11-28 19:38:59,182 [repositories/ontology] GET statements
+[INFO ] 2025-11-28 19:38:59,185 [repositories/ontology] GET statements
+[INFO ] 2025-11-28 19:38:59,235 [http-nio-8080-exec-10] Request for query 3392903 is finished

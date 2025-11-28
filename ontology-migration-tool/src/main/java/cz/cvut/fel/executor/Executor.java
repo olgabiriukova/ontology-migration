@@ -19,19 +19,26 @@ public class Executor {
     public void execute(ChangeLog changeLog) {
         System.out.println("Start migration");
         repository.begin();
-        for (ChangeSet changeSet : changeLog.getChangeSets()) {
-            System.out.println("ChangeSet: " + changeSet.getId());
-            //StringBuilder transaction = new StringBuilder();
-            for (Change change : changeSet.getChanges()) {
-                System.out.println("Step type: " + change.getType());
-                System.out.println("Apply step logic");
-                String sparql = change.apply(repository);
-                repository.update(sparql);
-            }
+        try {
+            for (ChangeSet changeSet : changeLog.getChangeSets()) {
+                System.out.println("ChangeSet: " + changeSet.getId());
+                //StringBuilder transaction = new StringBuilder();
+                for (Change change : changeSet.getChanges()) {
+                    System.out.println("Step type: " + change.getType());
+                    System.out.println("Apply step logic");
+                    String sparql = change.apply(repository);
+                    repository.update(sparql);
 
+                }
+            }
+            repository.commit();
+
+
+        } catch (Exception e) {
+            System.err.println("FAILED: " + e.getMessage());
+            throw new RuntimeException(e);
         }
-        repository.commit();
-        System.out.println("Migration finished.");
+    System.out.println("Migration finished.");
 
     }
 
