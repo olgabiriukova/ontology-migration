@@ -46,6 +46,10 @@ changeSets:
         graph: "http://example.org/graph1"
 
       - type: "deleteResource"
+        uri: "http://example.org/ErrorResource"
+        graph: "http://example.org/graph1"
+
+      - type: "deleteResource"
         uri: "http://example.org/Alice"
         graph: "http://example.org/graph1"
 

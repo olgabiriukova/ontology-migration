@@ -1,9 +1,8 @@
 package cz.cvut.fel.model.changes;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import cz.cvut.fel.fuseki.FusekiRepository;
-
-import java.sql.SQLOutput;
+import cz.cvut.fel.repository.FusekiRepository;
+import cz.cvut.fel.repository.OntologyRepository;
 
 public class DeleteResourceChange extends Change{
     @JsonProperty("uri")
@@ -14,7 +13,7 @@ public class DeleteResourceChange extends Change{
     public DeleteResourceChange(){}
 
     @Override
-    public String apply(FusekiRepository repository) {
+    public String apply(OntologyRepository repository) {
         if (graph != null && !graph.isBlank()) {
             return String.format(
                     "DELETE WHERE { GRAPH <%s> { <%s> ?p ?o } }; " +

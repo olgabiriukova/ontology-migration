@@ -4,7 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import cz.cvut.fel.fuseki.FusekiRepository;
+import cz.cvut.fel.repository.FusekiRepository;
+import cz.cvut.fel.repository.OntologyRepository;
 
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
@@ -35,5 +36,5 @@ public abstract class Change {
         return this.getClass().getSimpleName();
     }
 
-    public abstract String apply(FusekiRepository repository);
+    public abstract String apply(OntologyRepository repository);
 }

@@ -11,3 +11,12 @@ services:
       - ADMIN_PASSWORD=admin
     volumes:
       - ./fuseki_data:/fuseki
+
+  rdf4j:
+    image: eclipse/rdf4j-workbench:latest
+    container_name: rdf4j
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/var/rdf4j
+

@@ -17,10 +17,18 @@ import java.io.*;
 public class Runner {
     private final MigrationRunner migrationRunner;
 
-    public Runner(@Value("${fuseki.endpoint}") String endpoint,
+    public Runner(@Value("${fuseki.endpoint}") String fusekiServer,
                   @Value("${fuseki.user}") String user,
-                  @Value("${fuseki.password}") String password) throws IOException {
-        this.migrationRunner = new MigrationRunner(endpoint, user, password);
+                  @Value("${fuseki.password}") String password,
+                  @Value("${rdf4j.server:}") String rdf4jServer,
+                  @Value("${rdf4j.repository}") String rdf4jRepo) throws IOException {
+        if(rdf4jServer!=null && !rdf4jServer.isBlank()){
+            this.migrationRunner = new MigrationRunner(rdf4jServer, rdf4jRepo);
+        }else if(fusekiServer!=null && !fusekiServer.isBlank()){
+            this.migrationRunner = new MigrationRunner(fusekiServer, user, password);
+        }else{
+            throw new IllegalArgumentException("endpoint is blank");
+        }
     }
 
     @PostConstruct

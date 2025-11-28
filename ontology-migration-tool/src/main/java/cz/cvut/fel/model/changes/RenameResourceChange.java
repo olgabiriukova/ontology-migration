@@ -1,6 +1,7 @@
 package cz.cvut.fel.model.changes;
 
-import cz.cvut.fel.fuseki.FusekiRepository;
+import cz.cvut.fel.repository.FusekiRepository;
+import cz.cvut.fel.repository.OntologyRepository;
 
 
 public class RenameResourceChange extends Change{
@@ -25,7 +26,7 @@ public class RenameResourceChange extends Change{
     }
 
     @Override
-    public String apply(FusekiRepository repository) {
+    public String apply(OntologyRepository repository) {
         String withGraph = "";
         if(graph!=null && !graph.isBlank()){
             withGraph ="WITH <" + graph + "> ";
@@ -48,6 +49,19 @@ public class RenameResourceChange extends Change{
                 WHERE { ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <%s> }
                 """, oldName, newName, oldName);
         //repository.update(sparqlType);
+        /*
+        String wg = withGraph + String.format("""
+                DELETE { GRAPH ?g { ?s ?p <%s> } }
+                INSERT { GRAPH ?g { ?s ?p <%s> } }
+                WHERE  { GRAPH ?g { ?s ?p <%s> } }
+                """, oldName, newName, oldName);
+
+        String wog = withGraph + String.format("""
+                DELETE { ?s ?p <%s> }
+                INSERT { ?s ?p <%s> }
+                WHERE  { ?s ?p <%s> }
+                """, oldName, newName, oldName);
+        */
         String sparqlObject = withGraph + String.format("""
                 DELETE { ?s ?p <%s> }
                 INSERT { ?s ?p <%s> }

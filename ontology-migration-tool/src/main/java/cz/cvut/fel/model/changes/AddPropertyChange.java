@@ -1,8 +1,8 @@
 package cz.cvut.fel.model.changes;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import cz.cvut.fel.fuseki.FusekiRepository;
+import cz.cvut.fel.repository.FusekiRepository;
+import cz.cvut.fel.repository.OntologyRepository;
 
 public class AddPropertyChange extends Change {
 
@@ -26,7 +26,7 @@ public class AddPropertyChange extends Change {
     }
 
     @Override
-    public String apply(FusekiRepository repository) { //TODO переписать
+    public String apply(OntologyRepository repository) { //TODO переписать
         StringBuilder sb = new StringBuilder();
         sb.append("INSERT DATA { ");
         if(graph != null && !graph.isBlank()){

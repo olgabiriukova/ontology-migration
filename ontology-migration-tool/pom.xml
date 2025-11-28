@@ -98,7 +98,16 @@
             <artifactId>json-schema-validator</artifactId>
             <version>1.5.9</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.eclipse.rdf4j</groupId>
+            <artifactId>rdf4j-repository-api</artifactId>
+            <version>4.3.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.rdf4j</groupId>
+            <artifactId>rdf4j-repository-http</artifactId>
+            <version>4.3.11</version>
+        </dependency>
     </dependencies>
 
 </project>
