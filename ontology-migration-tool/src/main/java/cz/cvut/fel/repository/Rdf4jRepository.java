@@ -1,5 +1,7 @@
 package cz.cvut.fel.repository;
 
+import org.eclipse.rdf4j.query.BooleanQuery;
+import org.eclipse.rdf4j.query.QueryLanguage;
 import org.eclipse.rdf4j.query.Update;
 import org.eclipse.rdf4j.repository.Repository;
 import org.eclipse.rdf4j.repository.RepositoryConnection;
@@ -30,6 +32,14 @@ public class Rdf4jRepository implements OntologyRepository {
     public void commit() {
         conn.commit();
         conn.close();
+    }
+
+    @Override
+    public boolean ask(String sparql) {
+        try(RepositoryConnection c = repo.getConnection()){
+            BooleanQuery bq = c.prepareBooleanQuery(QueryLanguage.SPARQL, sparql);
+            return bq.evaluate();
+        }
     }
 
     public RepositoryConnection getConnection() {

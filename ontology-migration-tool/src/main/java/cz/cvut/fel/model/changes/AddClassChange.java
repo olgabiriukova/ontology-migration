@@ -1,7 +1,6 @@
 package cz.cvut.fel.model.changes;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import cz.cvut.fel.repository.FusekiRepository;
 import cz.cvut.fel.repository.OntologyRepository;
 
 public class  AddClassChange extends Change{

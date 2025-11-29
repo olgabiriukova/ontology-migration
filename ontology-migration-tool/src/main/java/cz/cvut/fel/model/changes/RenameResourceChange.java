@@ -1,6 +1,5 @@
 package cz.cvut.fel.model.changes;
 
-import cz.cvut.fel.repository.FusekiRepository;
 import cz.cvut.fel.repository.OntologyRepository;
 
 

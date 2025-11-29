@@ -46,6 +46,13 @@ public class FusekiRepository implements OntologyRepository {
     }
 
     @Override
+    public boolean ask(String sparql){
+        try(RDFConnection qConn = RDFConnectionFactory.connectPW(endpoint, user, password)){
+            return qConn.queryAsk(sparql);
+        }
+    }
+
+    @Override
     public RepositoryConnection getConnection() {
         return null;
     }
