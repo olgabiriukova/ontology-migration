@@ -34,8 +34,11 @@ public class  AddClassChange extends Change{
             sb.append("}");
         }
         sb.append("}");
-        //repository.update(sb.toString());
-        System.out.println("Class added: " + uri);
         return sb.toString();
+    }
+
+    @Override
+    public String getLogMessage() {
+        return String.format("Class added: %s", uri);
     }
 }

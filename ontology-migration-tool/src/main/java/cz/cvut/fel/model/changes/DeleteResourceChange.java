@@ -22,4 +22,8 @@ public class DeleteResourceChange extends Change{
                     uri, uri
             );
     }
+    @Override
+    public String getLogMessage() {
+        return String.format("Resource deleted: %s", uri);
+    }
 }

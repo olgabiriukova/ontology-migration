@@ -38,8 +38,14 @@ public class AddPropertyChange extends Change {
             sb.append("}");
         }
         sb.append(" }");
-        //repository.update(sb.toString());
-        System.out.println("Property added: " + propertyURI);
+
         return sb.toString();
     }
+
+    @Override
+    public String getLogMessage() {
+        return String.format("Property added: <%s> <%s> <%s>", subjectURI, propertyURI, objectURI);
+    }
+
+
 }

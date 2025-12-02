@@ -36,4 +36,6 @@ public abstract class Change {
     }
 
     public abstract String apply(OntologyRepository repository);
+
+    public abstract String getLogMessage();
 }

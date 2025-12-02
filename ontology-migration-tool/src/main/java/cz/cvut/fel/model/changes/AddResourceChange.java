@@ -35,8 +35,11 @@ public class AddResourceChange extends Change{
             sb.append("}");
         }
         sb.append(" }");
-        //repository.update(sb.toString());
-        System.out.println("Resource added: " + uri);
         return sb.toString();
+    }
+
+    @Override
+    public String getLogMessage() {
+        return String.format("Resource added: %s", uri);
     }
 }

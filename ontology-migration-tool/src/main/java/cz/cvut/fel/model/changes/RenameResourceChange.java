@@ -36,8 +36,6 @@ public class RenameResourceChange extends Change{
                 INSERT { GRAPH ?g { ?s <%s> ?o } }
                 WHERE  { GRAPH ?g { ?s <%s> ?o } }
                 """, oldName, newName, oldName);
-
-        //repository.update(sparqlProperty);
         String sparqlSubjectWog = String.format("""
                 DELETE { <%s> ?p ?o}
                 INSERT { <%s> ?p ?o }
@@ -48,7 +46,6 @@ public class RenameResourceChange extends Change{
                 INSERT { GRAPH ?g { <%s> ?p ?o } }
                 WHERE { GRAPH ?g { <%s> ?p ?o } }
                 """, oldName, newName, oldName);
-        //repository.update(sparqlSubject);
         String sparqlTypeWog =String.format("""
                 DELETE { ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <%s>}
                 INSERT { ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <%s>}
@@ -59,8 +56,6 @@ public class RenameResourceChange extends Change{
                 INSERT { GRAPH ?g { ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <%s>} }
                 WHERE { GRAPH ?g { ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <%s> } }
                 """, oldName, newName, oldName);
-
-        //repository.update(sparqlType);
         String sparqlObjectWg = String.format("""
                 DELETE { GRAPH ?g { ?s ?p <%s> } }
                 INSERT { GRAPH ?g { ?s ?p <%s> } }
@@ -71,7 +66,6 @@ public class RenameResourceChange extends Change{
                 INSERT { ?s ?p <%s> }
                 WHERE  { ?s ?p <%s> }
                 """, oldName, newName, oldName);
-        //repository.update(sparqlObject);
         String transaction = sparqlPropertyWg + ";\n" +
                 sparqlSubjectWg + ";\n" +
                 sparqlTypeWg + ";\n" +
@@ -80,7 +74,11 @@ public class RenameResourceChange extends Change{
                 sparqlSubjectWog + ";\n" +
                 sparqlTypeWog + ";\n" +
                 sparqlObjectWog;
-        System.out.println("Resource was renamed " + oldName + " -> " + newName);
         return transaction;
+    }
+
+    @Override
+    public String getLogMessage() {
+        return String.format("Resource renamed: <%s> → <%s>", oldName, newName);
     }
 }

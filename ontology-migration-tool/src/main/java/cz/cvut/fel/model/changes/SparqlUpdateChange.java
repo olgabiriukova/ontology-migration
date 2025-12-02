@@ -13,8 +13,12 @@ public class SparqlUpdateChange extends Change{
     public SparqlUpdateChange() {}
 
     @Override
-    public String apply(OntologyRepository repository) { //sparql must be without with <graph>
-        System.out.println("Updating " + query);
+    public String apply(OntologyRepository repository) {
         return query;
+    }
+
+    @Override
+    public String getLogMessage() {
+        return "Executing SPARQL update: " + (query.length() > 100 ? query.substring(0, 100) + "..." : query);
     }
 }
