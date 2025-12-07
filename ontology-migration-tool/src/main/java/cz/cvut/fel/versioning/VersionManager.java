@@ -35,8 +35,7 @@ public class VersionManager {
                         _:cs <http://example.org/id> "%s" ;
                              <http://example.org/appliedAt> "%s" . 
                     }
-                }
-                        
+                }     
                 """, VERSIONS, id, now);
         repository.update(query);
     }

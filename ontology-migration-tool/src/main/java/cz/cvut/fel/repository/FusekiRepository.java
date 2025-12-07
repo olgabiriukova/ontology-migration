@@ -51,9 +51,4 @@ public class FusekiRepository implements OntologyRepository {
             return qConn.queryAsk(sparql);
         }
     }
-
-    @Override
-    public RepositoryConnection getConnection() {
-        return null;
-    }
 }

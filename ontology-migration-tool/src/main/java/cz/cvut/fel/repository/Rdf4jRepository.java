@@ -41,12 +41,4 @@ public class Rdf4jRepository implements OntologyRepository {
             return bq.evaluate();
         }
     }
-
-    public RepositoryConnection getConnection() {
-        return repo.getConnection();
-    }
-
-
-
-
 }

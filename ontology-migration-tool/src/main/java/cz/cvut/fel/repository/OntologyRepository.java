@@ -7,6 +7,4 @@ public interface OntologyRepository {
     void update(String sparql);
     void commit();
     boolean ask(String sparql);
-    RepositoryConnection getConnection();
-
 }
