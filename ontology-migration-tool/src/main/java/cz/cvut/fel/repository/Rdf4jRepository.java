@@ -12,8 +12,11 @@ public class Rdf4jRepository implements OntologyRepository {
     private final Repository repo;
     private RepositoryConnection conn;
 
-    public Rdf4jRepository(Repository repo) {
-        this.repo = repo;
+    public Rdf4jRepository(String endpoint, String user, String password) {
+        HTTPRepository r = new HTTPRepository(endpoint);
+        r.setUsernameAndPassword(user, password);
+        r.init();
+        this.repo = r;
     }
 
     @Override

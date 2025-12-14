@@ -39,6 +39,7 @@ public class Executor {
             }
             repository.commit();
         } catch (Exception e) {
+            logger.logError("MIGRATION ERROR", e);
             logger.logEnd(false);
             throw new MigrationExecutionException("Failed to execute migration", e);
         }

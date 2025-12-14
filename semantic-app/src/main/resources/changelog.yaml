@@ -1,5 +1,5 @@
 changeSets:
-  - id: "1"
+  - id: "3"
     changes:
       - type: "renameResource"
         oldName: "http://example.org/OldClass"
@@ -18,7 +18,7 @@ changeSets:
         label: "Person Class"
 
       - type: "addResource"
-        uri: "http://example.org/Alice"
+        uri: "http://example.org/A"
         classUri: "http://example.org/Person"
         label: "Alice"
 

@@ -9,6 +9,7 @@ import cz.cvut.fel.model.ChangeLog;
 import cz.cvut.fel.repository.FusekiRepository;
 import cz.cvut.fel.repository.OntologyRepository;
 import cz.cvut.fel.repository.Rdf4jRepository;
+import cz.cvut.fel.repository.RepositoryFactory;
 import org.eclipse.rdf4j.repository.Repository;
 import org.eclipse.rdf4j.repository.http.HTTPRepository;
 
@@ -19,16 +20,8 @@ public class MigrationRunner {
     private final ChangeLogLoader loader;
     private final MigrationLogger logger;
 
-    public MigrationRunner(String endpoint, String username, String password) throws IOException {
-        this.repo = new FusekiRepository(endpoint, username, password);
-        this.loader = new ChangeLogLoader();
-        this.logger = new Slf4jMigrationLogger();
-    }
-
-    public MigrationRunner(String url, String id) throws IOException {
-        Repository r = new HTTPRepository(url, id);
-        r.init();
-        this.repo = new Rdf4jRepository(r);
+    public MigrationRunner(String type, String endpoint, String username, String password) throws IOException {
+        this.repo = RepositoryFactory.createRepository(type, endpoint, username, password);
         this.loader = new ChangeLogLoader();
         this.logger = new Slf4jMigrationLogger();
     }
