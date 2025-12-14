@@ -6,12 +6,8 @@ import cz.cvut.fel.loader.ChangeLogLoader;
 import cz.cvut.fel.logger.Slf4jMigrationLogger;
 import cz.cvut.fel.logger.MigrationLogger;
 import cz.cvut.fel.model.ChangeLog;
-import cz.cvut.fel.repository.FusekiRepository;
 import cz.cvut.fel.repository.OntologyRepository;
-import cz.cvut.fel.repository.Rdf4jRepository;
 import cz.cvut.fel.repository.RepositoryFactory;
-import org.eclipse.rdf4j.repository.Repository;
-import org.eclipse.rdf4j.repository.http.HTTPRepository;
 
 import java.io.IOException;
 

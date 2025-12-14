@@ -11,8 +11,6 @@ public class RepositoryFactory {
     public static OntologyRepository createRepository(String type, String endpoint,
                                                       String user, String password) throws IOException {
         switch (type.toLowerCase()) {
-            case "fuseki":
-                return new FusekiRepository(endpoint, user, password);
             case "rdf4j":
                 return new Rdf4jRepository(endpoint, user, password);
             default:
