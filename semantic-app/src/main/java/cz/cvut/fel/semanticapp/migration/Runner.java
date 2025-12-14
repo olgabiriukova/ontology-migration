@@ -8,13 +8,15 @@ import jakarta.annotation.PostConstruct;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdfconnection.RDFConnection;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
 
 @Component
-public class Runner {
+public class Runner implements ApplicationRunner {
     private final MigrationRunner migrationRunner;
 
     public Runner(@Value("${repository.type}") String type,
@@ -24,21 +26,25 @@ public class Runner {
         this.migrationRunner = new MigrationRunner(type, endpoint, user, password);
     }
 
-    @PostConstruct
-    public void runMigration() throws Exception{
-        try{
+    @Override
+    public void run(ApplicationArguments args) {
+        try {
             migrationRunner.run();
+            System.out.println("Migration completed.");
         } catch (ChangeLogValidationException e) {
             System.err.println("ChangeLog validation error!");
-            System.exit(1);
-
+            shutdown(e);
         } catch (IOException e) {
-            System.err.println("Changelog is not found");
-            System.exit(1);
+            System.err.println("Changelog is not found!");
+            shutdown(e);
         } catch (Exception e) {
             System.err.println("Migration errors: " + e.getMessage());
-            System.exit(1);
+            shutdown(e);
         }
-        System.out.println("Migration completed.");
+    }
+
+    private void shutdown(Exception e) {
+        e.printStackTrace();
+        System.exit(1);
     }
 }
