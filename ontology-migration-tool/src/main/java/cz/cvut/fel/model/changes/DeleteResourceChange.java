@@ -19,7 +19,7 @@ public class DeleteResourceChange extends Change{
                             "DELETE WHERE { <%s> ?p ?o }; " +
                             "DELETE WHERE { ?s ?p <%s> }"
                     ,
-                    uri, uri
+                    uri, uri, uri, uri
             );
     }
     @Override
