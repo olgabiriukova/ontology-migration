@@ -1,12 +1,14 @@
 package cz.cvut.fel.model.changes;
 
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.Resource;
-import org.apache.jena.vocabulary.RDF;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import cz.cvut.fel.repository.OntologyRepository;
 
 public class AddResourceChange extends Change{
+    @JsonProperty("uri")
     private String uri;
+    @JsonProperty("classUri")
     private String classUri;
+    @JsonProperty("label")
     private String label;
 
     public AddResourceChange(String uri, String classUri, String label) {
@@ -17,16 +19,27 @@ public class AddResourceChange extends Change{
     public AddResourceChange(){}
 
     @Override
-    public void apply(Model model) {
-        Resource resource = model.createResource(uri);
-        if(classUri != null){
-            resource.addProperty(model.createProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),
-                    model.createResource(classUri));
+    public String apply(OntologyRepository repository) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("INSERT DATA { ");
+        if(graph != null && !graph.isBlank()){
+            sb.append("GRAPH <").append(graph).append("> { ");
         }
-         if(label != null){
-             resource.addProperty(model.createProperty("http://www.w3.org/2000/01/rdf-schema#label"), label);
-         }
+        if (classUri != null) {
+            sb.append(String.format("<%s> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <%s> . ", uri, classUri));
+        }
+        if (label != null) {
+            sb.append(String.format("<%s> <http://www.w3.org/2000/01/rdf-schema#label> \"%s\" . ", uri, label));
+        }
+        if(graph!=null && !graph.isBlank()){
+            sb.append("}");
+        }
+        sb.append(" }");
+        return sb.toString();
+    }
 
-        System.out.println("Resource added:  " + uri);
+    @Override
+    public String getLogMessage() {
+        return String.format("Resource added: %s", uri);
     }
 }

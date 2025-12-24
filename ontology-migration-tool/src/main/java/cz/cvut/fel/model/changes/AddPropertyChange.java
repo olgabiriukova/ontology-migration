@@ -1,43 +1,51 @@
 package cz.cvut.fel.model.changes;
 
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.Property;
-import org.apache.jena.rdf.model.Resource;
-
-import java.awt.geom.RectangularShape;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import cz.cvut.fel.repository.OntologyRepository;
 
 public class AddPropertyChange extends Change {
-    //TODO
-    private final String propertyURI;
-    private final String objectURI;
-    private final String subjectURI;
 
-    public AddPropertyChange(String propertyURI, String objectURI, String subjectURI) {
+    @JsonProperty("propertyURI")
+    private String propertyURI;
+
+    @JsonProperty("objectURI")
+    private String objectURI;
+
+    @JsonProperty("subjectURI")
+    private String subjectURI;
+
+    public AddPropertyChange(){}
+
+    public AddPropertyChange(String propertyURI, String objectURI, String subjectURI,
+                             String graph) {
         this.propertyURI = propertyURI;
         this.objectURI = objectURI;
         this.subjectURI = subjectURI;
+        this.graph = graph;
     }
+
     @Override
-    public void apply(Model model) {
-        Resource subject = model.getResource(subjectURI);
-        Resource object = model.getResource(objectURI);
-        if(subject == null){
-            System.out.println("No such subject: " + subjectURI);
-            return;
+    public String apply(OntologyRepository repository) { //TODO переписать
+        StringBuilder sb = new StringBuilder();
+        sb.append("INSERT DATA { ");
+        if(graph != null && !graph.isBlank()){
+            sb.append("GRAPH <").append(graph).append("> { ");
         }
-        if(object == null){
-            System.out.println("No such object: " + objectURI);
-            return;
+        if(subjectURI != null && propertyURI != null && objectURI != null){
+            sb.append(String.format("<%s> <%s> <%s> . ", subjectURI, propertyURI, objectURI));
         }
-        Property property = model.getProperty(propertyURI);
-        if(property != null){
-            System.out.println("Property already exists: " + propertyURI);
-            return;
+        if(graph!=null && !graph.isBlank()){
+            sb.append("}");
         }
+        sb.append(" }");
 
-        property = model.createProperty(propertyURI);
-        subject.addProperty(property, object);
-        System.out.println("Added property: " + propertyURI);
-
+        return sb.toString();
     }
+
+    @Override
+    public String getLogMessage() {
+        return String.format("Property added: <%s> <%s> <%s>", subjectURI, propertyURI, objectURI);
+    }
+
+
 }

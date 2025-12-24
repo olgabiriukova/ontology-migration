@@ -1,16 +1,20 @@
 package cz.cvut.fel.model.changes;
 
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.Resource;
-import org.apache.jena.rdf.model.Statement;
-
-import java.util.List;
+import cz.cvut.fel.repository.OntologyRepository;
 
 
 public class RenameResourceChange extends Change{
     private String oldName;
     private String newName;
+
+
+    public String getOldName() {
+        return oldName;
+    }
+
+    public void setOldName(String oldName) {
+        this.oldName = oldName;
+    }
 
     public String getNewName() {
         return newName;
@@ -19,35 +23,62 @@ public class RenameResourceChange extends Change{
     public void setNewName(String newName) {
         this.newName = newName;
     }
-    public String getOldName() {
-        return oldName;
-    }
-    public void setOldName(String oldName) {
-        this.oldName = oldName;
+
+    @Override
+    public String apply(OntologyRepository repository) {
+        String sparqlPropertyWog = String.format("""
+                DELETE { ?s <%s> ?o }
+                INSERT { ?s <%s> ?o }
+                WHERE  { ?s <%s> ?o }
+                """, oldName, newName, oldName);
+        String sparqlPropertyWg = String.format("""
+                DELETE { GRAPH ?g { ?s <%s> ?o } }
+                INSERT { GRAPH ?g { ?s <%s> ?o } }
+                WHERE  { GRAPH ?g { ?s <%s> ?o } }
+                """, oldName, newName, oldName);
+        String sparqlSubjectWog = String.format("""
+                DELETE { <%s> ?p ?o}
+                INSERT { <%s> ?p ?o }
+                WHERE { <%s> ?p ?o }
+                """, oldName, newName, oldName);
+        String sparqlSubjectWg = String.format("""
+                DELETE { GRAPH ?g { <%s> ?p ?o} }
+                INSERT { GRAPH ?g { <%s> ?p ?o } }
+                WHERE { GRAPH ?g { <%s> ?p ?o } }
+                """, oldName, newName, oldName);
+        String sparqlTypeWog =String.format("""
+                DELETE { ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <%s>}
+                INSERT { ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <%s>}
+                WHERE { ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <%s> }
+                """, oldName, newName, oldName);
+        String sparqlTypeWg =String.format("""
+                DELETE { GRAPH ?g { ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <%s>} }
+                INSERT { GRAPH ?g { ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <%s>} }
+                WHERE { GRAPH ?g { ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <%s> } }
+                """, oldName, newName, oldName);
+        String sparqlObjectWg = String.format("""
+                DELETE { GRAPH ?g { ?s ?p <%s> } }
+                INSERT { GRAPH ?g { ?s ?p <%s> } }
+                WHERE  { GRAPH ?g { ?s ?p <%s> } }
+                """, oldName, newName, oldName);
+        String sparqlObjectWog = String.format("""
+                DELETE { ?s ?p <%s> }
+                INSERT { ?s ?p <%s> }
+                WHERE  { ?s ?p <%s> }
+                """, oldName, newName, oldName);
+        String transaction = sparqlPropertyWg + ";\n" +
+                sparqlSubjectWg + ";\n" +
+                sparqlTypeWg + ";\n" +
+                sparqlObjectWg + ";\n" +
+                sparqlPropertyWog + ";\n" +
+                sparqlSubjectWog + ";\n" +
+                sparqlTypeWog + ";\n" +
+                sparqlObjectWog;
+        return transaction;
     }
 
     @Override
-    public void apply(Model model) {
-        Resource oldResource = model.getResource(oldName);
-        Resource newResource = model.getResource(newName);
-
-        if (oldResource == null) {
-            System.out.println("Resource not found:"+oldName);
-            return;
-        }
-
-        List<Statement> props = oldResource.listProperties().toList();
-        for (Statement stmt : props) {
-            newResource.addProperty(stmt.getPredicate(), stmt.getObject());
-        }
-
-        List<Statement> refs = model.listStatements(null, null, oldResource).toList();
-        for (Statement stmt : refs) {
-            model.add(stmt.getSubject(), stmt.getPredicate(), newResource);
-            model.remove(stmt);
-        }
-        model.removeAll(oldResource, null, null);
-        model.removeAll(null, null, oldResource);
-        System.out.println("Resource changed to " + newName);
+    public String getLogMessage() {
+        return String.format("Resource renamed: <%s> → <%s>", oldName, newName);
     }
 }

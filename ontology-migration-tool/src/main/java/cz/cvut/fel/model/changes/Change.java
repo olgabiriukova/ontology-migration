@@ -1,9 +1,10 @@
 package cz.cvut.fel.model.changes;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import org.apache.jena.rdf.model.Model;
+import cz.cvut.fel.repository.OntologyRepository;
 
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
@@ -11,18 +12,21 @@ import org.apache.jena.rdf.model.Model;
         property = "type"
 )
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = RenamePropertyChange.class, name = "renameProperty"),
         @JsonSubTypes.Type(value = RenameResourceChange.class, name = "renameResource"),
-        @JsonSubTypes.Type(value = RenameClassChange.class, name = "renameClass"),
         @JsonSubTypes.Type(value = AddClassChange.class, name = "addClass"),
         @JsonSubTypes.Type(value = AddResourceChange.class, name = "addResource"),
         @JsonSubTypes.Type(value = DeleteResourceChange.class, name = "deleteResource"),
-        @JsonSubTypes.Type(value = DeleteClassChange.class, name = "deleteClass"),
-        @JsonSubTypes.Type(value = DeletePropertyChange.class, name = "deleteProperty"),
         @JsonSubTypes.Type(value = AddPropertyChange.class, name = "addProperty"),
         @JsonSubTypes.Type(value = SparqlUpdateChange.class, name = "sparqlUpdate")
 })
 public abstract class Change {
+    @JsonProperty("graph")
+    protected String graph;
+
+    public String getGraph() {
+        return graph;
+    }
+
     public String getType() {
         JsonTypeName annotation = this.getClass().getAnnotation(JsonTypeName.class);
         if (annotation != null) {
@@ -31,5 +35,7 @@ public abstract class Change {
         return this.getClass().getSimpleName();
     }
 
-    public abstract void apply(Model model);
+    public abstract String apply(OntologyRepository repository);
+
+    public abstract String getLogMessage();
 }

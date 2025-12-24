@@ -1,9 +1,10 @@
 package cz.cvut.fel.model.changes;
 
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.Resource;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import cz.cvut.fel.repository.OntologyRepository;
 
 public class DeleteResourceChange extends Change{
+    @JsonProperty("uri")
     private String uri;
     public DeleteResourceChange(String uri) {
         this.uri = uri;
@@ -11,15 +12,20 @@ public class DeleteResourceChange extends Change{
     public DeleteResourceChange(){}
 
     @Override
-    public void apply(Model model) {
-        Resource resource = model.getResource(uri);
-        if(resource != null){
-            System.out.println("Resource "+uri+" not found!");
-        }
-        resource.listProperties().forEachRemaining(stmt->model.remove(stmt));
-        model.listStatements(null,null,resource).forEachRemaining(stmt->model.remove(stmt));
-
-        System.out.println("Resource "+uri+" removed!");
-
+    public String apply(OntologyRepository repository) {
+            return String.format(
+                    "DELETE WHERE { GRAPH ?g { <%s> ?p ?o } }; " +
+                            "DELETE WHERE { GRAPH ?g { ?s ?p <%s> } };" +
+                            "DELETE WHERE { <%s> ?p ?o }; " +
+                            "DELETE WHERE { ?s ?p <%s> }" +
+                            "DELETE WHERE { GRAPH ?g { ?s <%s> ?o } }; " +
+                            "DELETE WHERE { ?s <%s> ?o }"
+                    ,
+                    uri, uri, uri, uri, uri, uri
+            );
+    }
+    @Override
+    public String getLogMessage() {
+        return String.format("Resource deleted: %s", uri);
     }
 }
