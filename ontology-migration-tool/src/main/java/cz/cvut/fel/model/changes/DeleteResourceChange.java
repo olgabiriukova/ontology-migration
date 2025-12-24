@@ -17,9 +17,11 @@ public class DeleteResourceChange extends Change{
                     "DELETE WHERE { GRAPH ?g { <%s> ?p ?o } }; " +
                             "DELETE WHERE { GRAPH ?g { ?s ?p <%s> } };" +
                             "DELETE WHERE { <%s> ?p ?o }; " +
-                            "DELETE WHERE { ?s ?p <%s> }"
+                            "DELETE WHERE { ?s ?p <%s> }" +
+                            "DELETE WHERE { GRAPH ?g { ?s <%s> ?o } }; " +
+                            "DELETE WHERE { ?s <%s> ?o }"
                     ,
-                    uri, uri, uri, uri
+                    uri, uri, uri, uri, uri, uri
             );
     }
     @Override
