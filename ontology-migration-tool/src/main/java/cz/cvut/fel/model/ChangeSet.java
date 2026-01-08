@@ -12,8 +12,6 @@ public class ChangeSet {
     public ChangeSet(){}
     public String getId() { return id; }
     public List<Change> getChanges() { return changes; }
-    public void addChange(Change change) { changes.add(change); }
-    public void setId(String id) { this.id = id; }
     public void setChanges(List<Change> changes) { this.changes = changes; }
 
 }

@@ -8,7 +8,6 @@ import java.util.List;
 public class ChangeLog {
     private List<ChangeSet> changeSets = new ArrayList<>();
     public List<ChangeSet> getChangeSets() { return changeSets; }
-    public void addChangeSet(ChangeSet cs) { changeSets.add(cs); }
     public ChangeLog(){}
     public void setChangeSets(List<ChangeSet> changeSets) { this.changeSets = changeSets; }
 }
